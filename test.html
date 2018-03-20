@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<input type="text" id="name"/>
+<button id="btn-login">点击</button>
+<table id="test" border="2">
+
+</table>
+<script type="text/javascript">
+    $("#btn-login").click(function () {
+     //   alert($("#name").val());
+        localStorage.clear();
+//            $(window).attr('location','view/main.html');
+        $.ajax({
+            url: "http://localhost:9090/testss",
+            type: "get",
+            contentType: "application/json",
+            data: {"name": $("#name").val()},
+            datatype: "json",
+            success: function (data) {
+                $("#test").append("<tr>");
+                $("#test").append("<td>" + data.msg + "</td>");
+                $("#test").append("<td>" + data.test.id + "</td>");
+                $("#test").append("<td>" + data.test.name+ "</td>");
+                $("#test").append("<td>" + data.test.username + "</td>");
+                $("#test").append("<td>" + data.test.age + "</td>");
+                $("#test").append("</tr>");
+          //      alert(JSON.stringify(data));
+            }
+            ,
+            error: function () {
+                alert("登录失败");
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

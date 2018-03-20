@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">button</button>
+
+
+
+
+
+<script src="../js/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+    //GET  传递多个基本类型
+    //@RequestParam 接收
+    $("#btn").click(function () {
+        $.ajax({
+            url: "http://localhost:8989/api/object",
+            type: "get",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: {"x": 1, "y": 2, "method": "add"},
+            datatype: "json",
+            success: function (data) {
+                alert("success");
+                console.log(data);
+            },
+            error: function () {
+                console.log("error");
+                alert("失败");
+            }
+        });
+    });
+
+    //POST PUT DELETE 传递多个基本类型
+    //@RequestParam 接收
+    $("#btn").click(function () {
+        $.ajax({
+            url: "http://localhost:8989/api/object",
+            type: "delete",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: {"x": 1, "y": 2, "method": "add"},
+            datatype: "json",
+            success: function (data) {
+                alert("success");
+                console.log(data);
+            },
+            error: function () {
+                console.log("error");
+                alert("失败");
+            },
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded" //post put必须设置请求头 否则失败
+            }
+        });
+    });
+
+    //POST,PUT,DELETE  传递一个对象
+    //@RequestBody 接收
+    $("#btn").click(function () {
+        var test = {"id": 33, "msg": "33str"};
+        $.ajax({
+            url: "http://localhost:8989/api/object",
+            type: "delete",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(test),
+            datatype: "json",
+            success: function (data) {
+                alert("success");
+                console.log(data);
+            },
+            error: function () {
+                console.log("error");
+                alert("失败");
+            }
+        });
+    });
+
+    //POST PUT DELETE  传递一个数组
+    //@RequestBody 接收
+    $("#btn").click(function () {
+        $.ajax({
+            url: "http://localhost:8989/api/object",
+            type: "post",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify([1, 3, 4,66]),
+            datatype: "json",
+            success: function (data) {
+                alert("success");
+                console.log(data);
+            },
+            error: function () {
+                console.log("error");
+                alert("失败");
+            }
+        });
+    });
+</script>
+</body>
+</html>
