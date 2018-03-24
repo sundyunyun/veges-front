@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
-    <title>Gentelella Alela! | </title>
+    <title>Fresh!Buy | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -282,7 +282,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>个人信息</h3>
+                <h3>修改个人信息</h3>
               </div>
 
               <!--查询-->
@@ -440,7 +440,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">密码</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Default Input" id="password">
+                          <input type="text" class="form-control" placeholder="Default Input" required="" id="password">
                         </div>
                       </div>
                       <div class="form-group">
@@ -467,7 +467,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                           <button type="button" class="btn btn-primary">Cancel</button>
 						   <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <a onclick="change()" class="btn btn-success">Submit</a>
                         </div>
                       </div>
 
@@ -1383,7 +1383,7 @@
             //加载个人信息
             var token = localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-           alert(baseInfo.user.age) ;
+            alert("tests");
             $("#name").html(baseInfo.user.name);
             $("#namee").val(baseInfo.user.name);
             $("#username").val(baseInfo.user.username);
@@ -1391,12 +1391,15 @@
             $("#age").val(baseInfo.user.age);
             $("#tel").val(baseInfo.user.tel);
             $("#email").val(baseInfo.user.email);
-            $("#role").val(baseInfo.role.roleName);
-            $("#deptId").val("采购部");
+            $("#role").val(baseInfo.role.role);
     /*        alert(baseInfo.user.name);
             alert(baseInfo.user.age);*/
+
+           //需要解码
+            // $("#password").html(baseInfo.user.password);
         });
 
+//权限接口
         function authtest() {
             var token =localStorage.getItem("token");
             var baseInfo=JSON.parse(localStorage.getItem("baseinfo"));
@@ -1417,6 +1420,7 @@
                     baseInfo.user = u;
                     console.log(u);
                     alert(JSON.stringify(data));
+//                    baseInfo.user=data;
                     localStorage.setItem("baseinfo",JSON.stringify(baseInfo));
                     //更新localStorage里的信息。
                     $(window).attr('location','personinfo.html');
@@ -1427,6 +1431,8 @@
                 }
             });
         }
+
+        //修改权限接口
         function authtests() {
             var token=localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
@@ -1456,6 +1462,48 @@
 
             });
 
+        }
+        function change() {
+            var token=localStorage.getItem("token");
+            var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+            alert($("#password").val());
+                var user = {
+                    "id": baseInfo.user.id,
+                    "name": $("#namee").val(),
+                    "gender": $("#gender").val(),
+                    "email": $("#email").val(),
+                    "tel": $("#tel").val(),
+                    "age": $("#age").val(),
+                    "password": $("#password").val()
+                };
+                //用户未输入时设置为null，后端不改变数据库相关内容
+            if($("#password").val()=="")
+                user.password=null;
+
+                $.ajax({
+                url:url+"/api/user/change",
+                type:"put",
+                contentType:"application/json",
+                data:JSON.stringify(user),
+                datatype:"json",
+                beforeSend: function (request) {
+                    alert(JSON.stringify(user));
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                    alert(JSON.stringify(data));
+                    var u=JSON.parse(data);
+                    alert(u.password);
+                    baseInfo.user=u;
+                    //更新localStorage用户信息
+                    localStorage.setItem("baseinfo",JSON.stringify(baseInfo));
+                    $(window).attr('location','changebuyerinfo.html');
+                }
+                ,
+                error:function () {
+                    alert("access denied");
+                }
+            });
         }
 
     </script>

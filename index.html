@@ -71,7 +71,7 @@
                   <li><a><i class="fa fa-home"></i> 个人信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a onclick="authtest()">查看个人信息</a></li>
-                      <li><a href="index2.html">修改个人信息</a></li>
+                      <li><a onclick="authtests()">修改个人信息</a></li>
                       <!--<li><a href="index3.html">Dashboard3</a></li>-->
                     </ul>
                   </li>
@@ -1041,13 +1041,12 @@
  function authtest() {
      var token =localStorage.getItem("token");
      var baseInfo=JSON.parse(localStorage.getItem("baseinfo"));
-
      //测试权限接口
      $.ajax({
          url: url + "/api/user",
          type: "get",
          contentType: "application/json",
-         data:{"id":6},
+         data:{"id":baseInfo.user.id},
          datatype: "json",
          beforeSend: function (request) {
              alert("test");
@@ -1055,12 +1054,7 @@
          },
          success: function (data) {
              alert(JSON.stringify(data));
-           /*  baseInfo.user=data;
-             localStorage.setItem("basei")*/
-
             $(window).attr('location','personinfo.html');
-
-
          }
          ,
          error:function () {
@@ -1068,6 +1062,37 @@
          }
      });
  }
+ //测试修改接口权限
+  function authtests() {
+     var token=localStorage.getItem("token");
+      var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+     var id=baseInfo.user.id;
+     var username=baseInfo.user.username;
+     var user=baseInfo.user;
+     user.password=null;
+
+     $.ajax({
+         url:url+"/api/user/change",
+         type:"put",
+         contentType:"application/json",
+         data:JSON.stringify(user),
+         datatype:"json",
+         beforeSend: function (request) {
+             alert(JSON.stringify(user));
+             request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+         },
+         success: function (data) {
+             alert(JSON.stringify(data));
+             $(window).attr('location','changebuyerinfo.html');
+         }
+         ,
+         error:function () {
+             alert("access denied");
+         }
+
+     });
+
+  }
 
 </script>
   </body>
