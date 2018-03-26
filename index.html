@@ -78,7 +78,7 @@
                   <li><a><i class="fa fa-edit"></i> 供应商管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="personinfo.html">查看所签供应商</a></li>
-                      <li><a href="form_advanced.html">查看供应商信息</a></li>
+                      <li><a onclick="authsupp()">查看供应商信息</a></li>
                       <li><a href="form_validation.html">更新供应商信息</a></li>
                      <!-- <li><a href="form_wizards.html">Form Wizard</a></li>
                       <li><a href="form_upload.html">Form Upload</a></li>
@@ -1092,6 +1092,30 @@
 
      });
 
+  }
+
+  function authsupp() {
+      var token=localStorage.getItem("token");
+      var baseInfo=JSON.parse(localStorage.getItem("baseinfo"));
+      $.ajax({
+          url:url+"/api/user/suppliers",
+          type:"get",
+          contentType:"application/json",
+          data:{"roleId":2},
+          datatype:"json",
+          beforeSend: function (request) {
+              alert("tt");
+              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+          },
+          success: function (data) {
+            alert(JSON.stringify(data));
+              $(window).attr('location','viewsuppinfo.html');
+          }
+          ,
+          error:function () {
+              alert("access denied");
+          }
+      });
   }
 
 </script>
