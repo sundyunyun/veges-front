@@ -23,6 +23,16 @@
     <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -278,10 +288,10 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Users <small>Some examples to get you started</small></h3>
+                <h3>Users <small>该供应商所提供菜品信息</small></h3>
               </div>
 
-              <div class="title_right">
+              <!--<div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
@@ -290,25 +300,22 @@
                     </span>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
 
             <div class="clearfix"></div>
 
             <div class="row">
-              <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+            <!--  <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                  <th>编 号</th>
-                  <th>名 称</th>
-                  <th>电 话</th>
-                  <th>地 址</th>
-                  <th>状 态</th>
+                  <th>蔬菜名称</th>
+                  <th>蔬菜种类</th>
                   <th>操 作</th>
 
                 </tr>
                 </thead>
-            <!--    <tbody>
+            &lt;!&ndash;    <tbody>
                 &lt;!&ndash;<tr>
                   <td>Tiger</td>
                   <td>Nixon</td>
@@ -336,12 +343,13 @@
 
 
 
-                </tbody>-->
-              </table>
-             <!-- <div class="col-md-12 col-sm-12 col-xs-12">
+                </tbody>&ndash;&gt;
+              </table>-->
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Responsive example<small>供应商</small></h2>
+                    <h2 id="suppname"><small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -361,54 +369,53 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
                     </p>
-
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
-                        <tr>
-                          <th>First name</th>
-                          <th>Last name</th>
-                          <th>Position</th>
-                          <th>Office</th>
+                      <tr>
+                        <th>蔬菜编号</th>
+                        <th>蔬菜名称</th>
+                        <th>蔬菜种类</th>
+                        <th>操 作</th>
 
-                        </tr>
+                      </tr>
                       </thead>
-                      <tbody>
-                        &lt;!&ndash;<tr>
-                          <td>Tiger</td>
-                          <td>Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
-                          <td>5421</td>
-                          <td>t.nixon@datatables.net</td>
-                        </tr>
-                        <tr>
-                          <td>Garrett</td>
-                          <td>Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>63</td>
-                          <td>2011/07/25</td>
-                          <td>$170,750</td>
-                          <td>8422</td>
-                          <td>g.winters@datatables.net</td>
-                        </tr>&ndash;&gt;
+                      <!--    <tbody>
+                          &lt;!&ndash;<tr>
+                            <td>Tiger</td>
+                            <td>Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>5421</td>
+                            <td>t.nixon@datatables.net</td>
+                          </tr>
+                          <tr>
+                            <td>Garrett</td>
+                            <td>Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>8422</td>
+                            <td>g.winters@datatables.net</td>
+                          </tr>&ndash;&gt;
 
 
 
 
 
-                      </tbody>
+                          </tbody>-->
                     </table>
+
 
 
                   </div>
                 </div>
-              </div>-->
+              </div>
               <!--<div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -459,6 +466,35 @@
                   </div>&ndash;&gt;
                 </div>
               </div>-->
+
+              <div class="x_content" >
+                <button type="button" class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加</button>
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel2">添加蔬菜</h4>
+                      </div>
+                      <div class="modal-body">
+                        <h4> 请输入蔬菜名称</h4>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control"  placeholder="蔬菜名称" id="vegesname">
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="add()">添加</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <a type="button" class="btn btn-round btn-primary" href="viewsuppinfo.html">返回</a>
+              </div>
             </div>
           </div>
         </div>
@@ -501,6 +537,29 @@
     <script src="../vendors/jszip/dist/jszip.min.js"></script>
     <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+   <!-- <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>-->
+    <!--<script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../vendors/google-code-prettify/src/prettify.js"></script>-->
+    <!-- jQuery Tags Input -->
+    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
+    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Parsley -->
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="../vendors/starrr/dist/starrr.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
@@ -508,92 +567,152 @@
     <script src="../dist/js/base.js"></script>
     <script>
 
-
-
-      /*      $("#datatable-responsive").dataTable().fnDestroy();
-      $('#datatable-responsive').DataTable({
-          language: {
-              "url": "js/assets/plugins/tables/datatables/datatables_language.json"
-          },
-          "processing":true,
-          "searching":true,
-          "serverSide":true,
-          "ajax":{
-              "url":url+"/api/user/suppliers",
-
-              "data": function (data) {
-                /!*alert(JSON.stringify(data));*!/
-                var d=JSON.parse(data);
-                  var info = $('#datatable-responsive').DataTable().page.info();
-                  d.pageNo = info.page;
-              }
-
-          },
-
-          "column":[
-              {"data":"user.name"},
-              {"data":"user.location"},
-              {"data":"user.tel"},
-              {"data":"user.email"}
-
-          ]
-          }
-      );*/
-
       $(function () {
           //加载个人信息
           var token = localStorage.getItem("token");
           var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+          var supplierId=JSON.parse(localStorage.getItem("supplierId"));
           $("#name").html(baseInfo.user.name);
-          show();
-      });
 
-      //页面一加载就展示自己的信息
+          //获取供应商菜品信息
+          /*$.ajax({
+              url:url+"/api/supplier/veges",
+              type:"get",
+              contentType:"application/json",
+              data:{"supplierId":supplierId},
+              datatype:"json",
+              beforeSend: function (request) {
+                  alert("authtest");
+                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+              },
+              success: function (data) {
+
+                 /!* alert(JSON.stringify(data));*!/
+                  var supplierveges =data;
+                  //将后台获取到的菜品信息放进locaiStorage里面
+                  localStorage.setItem("supplierveges",JSON.stringify(supplierveges));
+
+                  /!*$(window).attr('location','viewsuppveges.html');*!/
+              }
+              ,
+              error:function () {
+                  alert("access denied");
+              }
+          });*/
+          show();
+          $.ajax({
+              url:url+"/api/user",
+              type:"get",
+              contentType:"application/json",
+              data:{"id":supplierId},
+              datatype:"json",
+              beforeSend: function (request) {
+                  alert("authtest1");
+                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+              },
+              success: function (data) {
+                /*alert(JSON.stringify(data));*/
+                  var supplier=JSON.parse(data);
+                  $("#suppname").html(supplier.name);
+              }
+              ,
+              error:function () {
+                  alert("access denied");
+              }
+          });
+
+      });
         function show() {
             var token = localStorage.getItem("token");
-            var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-
+            var supplierId=JSON.parse(localStorage.getItem("supplierId"));
             var t=$("#datatable-responsive").DataTable();
-                /*t.row.add([
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                ]).draw();*/
 
+            /*alert(supplierId);*/
             $.ajax({
-                url:url+"/api/user/suppliers",
+                url:url+"/api/supplier/veges",
                 type:"get",
                 contentType:"application/json",
-                data:{"roleId":2},
+                data:{"supplierId":supplierId},
                 datatype:"json",
                 beforeSend: function (request) {
-                    alert("test");
+                    alert("authtest");
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
-
-                  alert(JSON.stringify(data));
-                  var data=JSON.parse(data);
-                  //
-
+                    /*alert(JSON.stringify(data));*/
+                    /*var data=JSON.parse(data);*/
                     for(var i=0;i<data.length;i++)
                     {
-                        alert("add");
-                        //根据供应商状态（是否合作中）判断是否显示
-                        /*if(data[i].state=='y') {*/
-                            t.row.add([
-                                data[i].id,
-                                data[i].name,
-                                data[i].location,
-                                data[i].tel,
-                                data[i].state,
-                                //查看该供应商详情，可提供蔬菜品种等
-                                "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='view(" + data[i].id + ")'>查看详情</button>"
-                              /*  "<button onclick='view("+data[i].id+")'>查看详情</button>"*/
-                            ]).draw();
-                       /* }*/
+                        t.row.add([
+                            data[i].id,
+                            data[i].name,
+                            data[i].des,
+                            "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick='del("+data[i].id+")'>删 除</button>"
+                        ]).draw();
                     }
+                }
+                ,
+                error:function () {
+                    alert("access denied");
+                }
+            });
+        }
+        
+        function del(id) {
+          var token = localStorage.getItem("token");
+          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+          var supplierId=JSON.parse(localStorage.getItem("supplierId"));
+          //根据蔬菜id和供应商id删除记录
+
+            $.ajax({
+                url:url+"/api/delsuppveges",
+                type:"get",
+                contentType:"application/json",
+                data:{"vegesId":id, "supplierId":supplierId},
+                datatype:"json",
+                beforeSend: function (request) {
+                    alert("authtest1");
+                    /*alert(id);
+                    alert(supplierId);*/
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                  /*alert(JSON.stringify(data));*/
+                    $(window).attr('location', 'viewsuppveges.html');
+                }
+                ,
+                error:function () {
+                    console.log(id);
+                    alert("access denied");
+                }
+            });
+        }
+
+        //增加供应商的蔬菜品种
+        function add(){
+            var supplierId=JSON.parse(localStorage.getItem("supplierId"));
+            var token = localStorage.getItem("token");
+
+            $.ajax({
+                url:url+"/api/addsuppveges",
+                type:"get",
+                contentType:"application/json",
+                data:{"supplierId":supplierId,"name":$("#vegesname").val()},
+                datatype:"json",
+                beforeSend: function (request) {
+                    alert("authtest2");
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                  /*alert(JSON.stringify(data));*/
+                 /* alert(JSON.stringify(data));*/
+                  if(JSON.parse(data)=="error")
+                  {
+                      alert("该蔬菜已存在！");
+                  }
+                   else{
+                      $(window).attr('location', 'viewsuppveges.html');
+                  }
                 }
                 ,
                 error:function () {
@@ -656,41 +775,6 @@
 
         }
 
-        //根据供应商id查看供应商菜品信息
-      function view(id) {
-          var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-
-          //i为id
-          $.ajax({
-              url:url+"/api/supplier/veges",
-              type:"get",
-              contentType:"application/json",
-              data:{"supplierId":id},
-              datatype:"json",
-              beforeSend: function (request) {
-                  alert("authtest");
-                  alert(id);
-                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-              },
-              success: function (data) {
-
-                  /*alert(JSON.stringify(data));*/
-          /*        var supplierveges =data;
-                  //将后台获取到的菜品信息放进locaiStorage里面
-                  localStorage.setItem("supplierveges",JSON.stringify(supplierveges));*/
-                  //将供应商放入localStorage,更新供应商信息时可修改
-                  localStorage.setItem("supplierId",JSON.stringify(id));
-
-            $(window).attr('location','viewsuppveges.html');
-              }
-              ,
-              error:function () {
-                  alert("access denied");
-              }
-          });
-
-      }
 
     </script>
   </body>
