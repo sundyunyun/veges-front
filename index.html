@@ -1037,7 +1037,31 @@
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
         $("#name").html(baseInfo.user.name);
+        showveges()
         });
+    function showveges() {
+        var token = localStorage.getItem("token");
+
+        $.ajax({
+            url: url + "/api/allveges",
+            type: "get",
+            async:false,
+            contentType: "application/json;charset=utf-8",
+            datatype: "json",
+            beforeSend: function (request) {
+              /*alert("test");*/
+                request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+            },
+            success: function (data) {
+              /*alert(JSON.stringify(data));*/
+                localStorage.setItem("veges",JSON.stringify(data));
+            }
+            ,
+            error: function () {
+                alert("access denied");
+            }
+        });
+    }
  function authtest() {
      var token =localStorage.getItem("token");
      var baseInfo=JSON.parse(localStorage.getItem("baseinfo"));
