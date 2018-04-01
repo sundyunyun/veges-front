@@ -476,39 +476,7 @@
                       <input type="number" id="totalprice" placeholder="总进货价" required="required"  class="form-control col-md-7 col-xs-12">
                     </div>
                   </div>
-                  <!--<div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
-                  <!--<div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Occupation <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="occupation" type="text" name="occupation" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
-               <!--   <div class="item form-group">
-                    <label for="password" class="control-label col-md-3">Password</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
-                    </div>
-                  </div>
-                  <div class="item form-group">
-                    <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
-                    </div>
-                  </div>-->
-                 <!-- <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <textarea id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
-                    </div>
-                  </div>-->
+
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
@@ -584,34 +552,32 @@
                   <div class="modal-body">
                     <h4> 请输入进货明细</h4>
                     <form class="form-horizontal form-label-left" novalidate>
-                      <!--         Email
-                               <div class="item form-group">
-                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                                 </label>
-                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                   <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                                 </div>
-                               </div>-->
-                      <!-- <div class="item form-group">
-                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
-                         </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                           <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                         </div>
-                       </div>-->
                       <div class="item form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">进货单编号</label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control" disabled="disabled" id="importId">
                       </div>
                     </div>
-                      <div class="item form-group">
+                     <!-- <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vegesname">蔬菜名称 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="vegesname" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-pattern="" name="name" placeholder="蔬菜名称" required="required" type="text">
                         </div>
+                      </div>-->
+                      <div class="item form-group">
+                     <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="vegesname">蔬菜<span class="required">*</span> </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input class="form-control col-md-7 col-xs-12" id="vegesname" placeholder="蔬菜名称" required="required" type="text" list="veges" />
+                     <datalist id="veges">
+                     <!--  <option value="Afghanistan 阿富汗">
+                       <option value="Albania 阿尔巴尼亚">
+                       <option value="Algeria 阿尔及利亚">
+                       <option value="Andorra 安道尔共和国">
+                       <option value="Angola 安哥拉">-->
+                      </datalist>
                       </div>
+                  </div>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">进价<span class="required">*</span>
@@ -646,8 +612,8 @@
                     </form>-->
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="additem()">添加</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="additem()" data-dismiss="modal">添加</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancle()" >取消</button>
                   </div>
 
 
@@ -679,17 +645,12 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <p class="text-muted font-13 m-b-30">
-             columns from the table.
-                </p>
-
                 <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                   <thead>
                   <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Position</th>
-                    <th>Office</th>
+                    <th>蔬菜名称</th>
+                    <th>进货单价</th>
+                    <th>进货数量</th>
                   </tr>
                   </thead>
                   <!--<tbody>
@@ -818,6 +779,24 @@
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- validator -->
     <script src="../vendors/validator/validator.js"></script>
+    <!-- Switchery -->
+    <script src="../vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Parsley -->
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="../vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="../vendors/starrr/dist/starrr.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
 
 
     <!-- Custom Theme Scripts -->
@@ -831,8 +810,37 @@
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
         $("#name").html(baseInfo.user.name);
         $("#buyer").val(baseInfo.user.name);
+       show();
         });
+    function show() {
+        var token = localStorage.getItem("token");
 
+        $.ajax({
+            url: url + "/api/allveges",
+            type: "get",
+            async:false,
+            contentType: "application/json;charset=utf-8",
+            datatype: "json",
+            beforeSend: function (request) {
+                /*alert("test");*/
+                request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+            },
+            success: function (data) {
+                /*alert(JSON.stringify(data));*/
+                localStorage.setItem("veges",JSON.stringify(data));
+                for(var i=0;i<data.length;i++)
+                {
+                    $("#veges").append("<option >"+data[i].name+"</option>");
+                }
+            }
+            ,
+            error: function () {
+                alert("生成失败");
+            }
+        });
+    }
+
+//采购员跑去进货，位置和状态，状态为进货中
     function addimport() {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
@@ -842,7 +850,8 @@
             "driverId":$("#driverId").val(),
             "totalprice":$("#totalprice").val(),
             "totalweight":$("#totalweight").val(),
-            "state":"未完成"};
+            "storeId":$("#storeId").val(),
+            "state":"进货未完成"};
         //前台有输入为空的打回null！
         $.ajax({
             url: url + "/api/addimport",
@@ -852,31 +861,124 @@
             data: JSON.stringify(addimpo),
             datatype: "json",
             beforeSend: function (request) {
-                alert("test");
+                /*alert(JSON.stringify(addimpo));*/
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-                alert(JSON.stringify(data));
-                if (data != null) {
-                    alert("阿西吧！！");
+                if (data!= "") {
+                    $("#importId").val(data.id);
+                    localStorage.setItem("importinfo",JSON.stringify(data));
+                    alert("添加成功");
                    /* $(window).attr('location', 'login.html');*/
                 }
                 else
-                    alert(JSON.stringify(data));
+                    alert("添加失败，请重新输入！");
             }
             ,
             error: function () {
-                alert("生成失败");
+                alert("access denied");
             }
         });
     }
     //前台生成一个importtem数组传到后台
     function additem() {
+        var token = localStorage.getItem("token");
+        var importInfo = JSON.parse(localStorage.getItem("importinfo"));
+        var bool=false;
+        var vegesId;
+        var t=$("#datatable-responsive").DataTable();
+
+        var Veges=JSON.parse(localStorage.getItem("veges"));
+        for(var j=0;j<Veges.length;j++){
+            if($("#vegesname").val()==Veges[j].name)
+            {
+                vegesId=Veges[j].id;
+                bool=true;
+            }
+        }
+
+        if(bool){
+            var item={"importId":importInfo.id,
+                "vegesId":vegesId,
+                "name":$("#vegesname").val(),
+                "price":$("#price").val(),
+                "number":$("#number").val()};
+            //前台有输入为空的打回null！
+            $.ajax({
+                url: url + "/api/addimportitem",
+                type: "post",
+                async:false,
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(item),
+                datatype: "json",
+                beforeSend: function (request) {
+                   /* alert(JSON.stringify(addimpo));*/
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                    if (data != "") {
+                        t.row.add([
+                            $("#vegesname").val(),
+                            $("#price").val(),
+                            $("#number").val()
+                        ]).draw();
+
+                        $("#vegesname").val(null);
+                        $("#price").val(null);
+                        $("#number").val(null);
+                    }
+                    else{
+                        alert("添加失败，请重新输入");
+                        $("#vegesname").val(null);
+                        $("#price").val(null);
+                        $("#number").val(null);
+                    }
+                }
+                ,
+                error: function () {
+                    alert("添加失败");
+                }
+            });
+
+        }
+        else {
+            alert("输入蔬菜名称不存在！");
+            $("#vegesname").val(null);
+            $("#price").val(null);
+            $("#number").val(null);
+        }
 
     }
 
     function add() {
         //传对象时设置对象状态为未完成，成功加完明细后改状态为完成。
+        var token = localStorage.getItem("token");
+        var importInfo = JSON.parse(localStorage.getItem("importinfo"));
+        $.ajax({
+            url: url + "/api/addimpodone",
+            type: "get",
+            async:false,
+            contentType: "application/json;charset=utf-8",
+            data:{"importId":importInfo.id},
+            datatype: "json",
+            beforeSend: function (request) {
+              /*alert("test");*/
+                request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+            },
+            success: function (data) {
+              /*alert(JSON.stringify(data));*/
+              alert("该进货单已成功生成");
+                $(window).attr('location', 'makeimport.html');
+            }
+            ,
+            error: function () {
+                alert("生成进货单失败");
+            }
+        });
+
+    }
+    function cancle() {
+       $(window).attr('location', 'makeimport.html');
     }
  function authtest() {
      var token =localStorage.getItem("token");
