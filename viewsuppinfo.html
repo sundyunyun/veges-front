@@ -79,7 +79,7 @@
                     <ul class="nav child_menu">
                       <li><a href="makeimport.html">生成进货单</a></li>
                       <li><a href="media_gallery.html">安排司机进货</a></li>
-                      <li><a href="typography.html">历史进货单</a></li>
+                      <li><a href="viewimpolist.html">历史进货单</a></li>
                       <!--                      <li><a href="icons.html">Icons</a></li>
                                             <li><a href="glyphicons.html">Glyphicons</a></li>
                                             <li><a href="widgets.html">Widgets</a></li>
@@ -508,9 +508,6 @@
     <script src="../dist/js/base.js"></script>
     <script>
 
-
-
-
       $(function () {
           //加载个人信息
           var token = localStorage.getItem("token");
@@ -523,6 +520,7 @@
         function show() {
             var token = localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+            var roleId=2;
 
             var t=$("#datatable-responsive").DataTable();
                 /*t.row.add([
@@ -531,23 +529,19 @@
                     "3",
                     "4"
                 ]).draw();*/
-
             $.ajax({
                 url:url+"/api/user/suppliers",
                 type:"get",
                 contentType:"application/json",
-                data:{"roleId":2},
+                data:{"roleId":roleId},
                 datatype:"json",
                 beforeSend: function (request) {
                     alert("test");
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
-
                   alert(JSON.stringify(data));
-                  var data=JSON.parse(data);
-                  //
-
+                  /*var data=JSON.parse(data);*/
                     for(var i=0;i<data.length;i++)
                     {
                         alert("add");
@@ -563,7 +557,6 @@
                                 "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='view(" + data[i].id + ")'>查看详情</button>"
                               /*  "<button onclick='view("+data[i].id+")'>查看详情</button>"*/
                             ]).draw();
-                       /* }*/
                     }
                 }
                 ,

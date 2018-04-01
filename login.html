@@ -71,24 +71,25 @@
     </div>
 </div>
 <!--my -->
-<script src="jquery-3.2.1.min.js"></script>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
 <script src="../dist/js/base.js"></script>
 <script>
     function login() {
         console.log("dafdaf");
 //        $("#btn-login").click(function () {
             localStorage.clear();
+
             //$(window).attr('location','view/index.html');
             $.ajax({
                 url: url + "/api/public/login",
                 type: "get",
-                async:false,
+                /*async:false,*/
                 contentType: "application/json;charset=utf-8",
                 data: {"username": $("#username").val(), "password": $("#password").val()},
                 datatype: "json",
                 success: function (data) {
-                    console.log("success");
-                    console.log(data);
+
+                    alert("?");
                     if (data.token != null) {
                         localStorage.setItem("token", data.token);
                         localStorage.setItem("baseinfo", JSON.stringify(data));
@@ -103,9 +104,6 @@
                 }
                 ,
                 error: function () {
-                    console.log("error");
-                    console.log($("#username").val());
-                    console.log($("#password").val());
                     alert("登录失败");
                 }
             });
