@@ -73,7 +73,7 @@
                     <ul class="nav child_menu">
                       <li><a href="personinfo.html">查看所签供应商</a></li>
                       <li><a href="viewsuppinfo.html">查看供应商信息</a></li>
-                      <li><a href="form_validation.html">更新供应商信息</a></li>
+              <!--        <li><a href="form_validation.html">更新供应商信息</a></li>-->
                       <!-- <li><a href="form_wizards.html">Form Wizard</a></li>
                        <li><a href="form_upload.html">Form Upload</a></li>
                        <li><a href="form_buttons.html">Form Buttons</a></li>-->
@@ -429,6 +429,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">年龄</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <input type="text" class="form-control" placeholder="Default Input" id="age">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">员工编号 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" disabled="disabled" placeholder="" id="Id">
                         </div>
                       </div>
                       <div class="form-group">
@@ -1383,7 +1389,6 @@
             //加载个人信息
             var token = localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-           alert(baseInfo.user.age) ;
             $("#name").html(baseInfo.user.name);
             $("#namee").val(baseInfo.user.name);
             $("#username").val(baseInfo.user.username);
@@ -1393,6 +1398,8 @@
             $("#email").val(baseInfo.user.email);
             $("#role").val(baseInfo.role.roleName);
             $("#deptId").val("采购部");
+            $("#password").val("*******");
+            $("#Id").val(baseInfo.user.id);
     /*        alert(baseInfo.user.name);
             alert(baseInfo.user.age);*/
         });
@@ -1409,12 +1416,11 @@
                 data:{"id":baseInfo.user.id},
                 datatype: "json",
                 beforeSend: function (request) {
-                    alert("test");
+                    alert("testperoninfo");
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
-                    var u = JSON.parse(data);
-                    baseInfo.user = u;
+                    baseInfo.user = data;
                     console.log(u);
                     alert(JSON.stringify(data));
                     localStorage.setItem("baseinfo",JSON.stringify(baseInfo));
@@ -1442,7 +1448,7 @@
                 data:JSON.stringify(user),
                 datatype:"json",
                 beforeSend: function (request) {
-                    alert(JSON.stringify(user));
+                    alert("changetest");
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {

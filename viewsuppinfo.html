@@ -633,8 +633,8 @@
               data:{"supplierId":id},
               datatype:"json",
               beforeSend: function (request) {
-                  alert("authtest");
-                  alert(id);
+                  /*alert("authtest");
+                  alert(id);*/
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
               },
               success: function (data) {

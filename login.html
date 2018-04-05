@@ -89,7 +89,6 @@
                 datatype: "json",
                 success: function (data) {
 
-                    alert("?");
                     if (data.token != null) {
                         localStorage.setItem("token", data.token);
                         localStorage.setItem("baseinfo", JSON.stringify(data));
