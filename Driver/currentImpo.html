@@ -301,6 +301,7 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <button  type="button" class="btn btn-success" onclick="confirm()">确认配送</button>
+                  <button  type="button" class="btn btn-info" onclick="done()">配送完成</button>
                 </div>
               </div>
 
@@ -562,6 +563,7 @@
                 $("#t").append("<tr>"+"<th>总重：</th>"+"<td>"+data.impo.totalprice+"</td>"+"</tr>");
                 $("#t").append("<tr>"+"<th>总价：</th>"+"<td>"+data.impo.totalweight+"</td>"+"</tr>");
                 showitem(data.impo.id);
+                localStorage.setItem("importId",JSON.stringify(data.impo.id));
             }
             ,
             error:function () {
@@ -626,6 +628,32 @@
                 alert("access denied");
             }
         });
+    }
+    //修改进货单状态为配送中
+    function confirm() {
+        var importId=JSON.parse(localStorage.getItem("importId"));
+        var token = localStorage.getItem("token");
+        $.ajax({
+            url:url+"/api/changeimpostate",
+            type:"get",
+            contentType:"application/json",
+            data:{"importId":importId},
+            datatype:"json",
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+            },
+            success: function (data) {
+                /*localStorage.setItem("importId",JSON.stringify(id));*/
+                /*$(window).attr('location','currentImpo.html');*/
+            }
+            ,
+            error:function () {
+                alert("access denied");
+            }
+        });
+    }
+    function done() {
+      $(window).attr('location','currentImpo.html');
     }
  function authtest() {
      var token =localStorage.getItem("token");
