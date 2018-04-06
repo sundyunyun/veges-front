@@ -297,15 +297,15 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>入库单 <small>详情</small></h3>
+                <h3>入库单 <small></small></h3>
               </div>
 
-              <!--<div class="title_right">
+             <!-- <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input type="text" class="form-control" id="importId">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
+                      <button class="btn btn-default" type="button" onclick="show()">搜索!</button>
                     </span>
                   </div>
                 </div>
@@ -428,7 +428,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>详情 <small></small></h2>
+                    <h2>进货单 <small>详情</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -549,7 +549,7 @@
           var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
           $("#name").html(baseInfo.user.name);
 
-          show();
+          /*show();*/
 
       });
         function show() {
