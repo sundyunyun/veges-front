@@ -553,7 +553,7 @@
                 </div>
               </div>
             </div>
-          <button type="button" class="btn btn-round btn-primary" onclick="ad()">添加完成</button>
+          <button type="button" class="btn btn-round btn-primary" onclick="add()">添加完成</button>
 
 
           <div class="col-md-6 col-xs-12">
@@ -765,7 +765,6 @@
         for(var i=0;i<importItem.length;i++){
             $("#items").append("<option >"+importItem[i].id+"</option>");
         }
-
     }
     function check(id) {
         var importItem=JSON.parse(localStorage.getItem("importitem"));
@@ -806,7 +805,7 @@
             },
             success: function (data) {
                 if (data!= "") {
-                    /*$("#importId").val(data.id);*/
+                    $("#instoreId").val(data.id);
                     //放入instoreId
                     localStorage.setItem("instoreinfo",JSON.stringify(data));
                     alert("添加成功");
@@ -829,7 +828,7 @@
         var bool=false;
         /*var vegesId;*/
         var t=$("#datatable-responsive").DataTable();
-        $("#instoreId").val(instoreInfo.id);
+       /* $("#instoreId").val(instoreInfo.id);*/
 
         /*var Veges=JSON.parse(localStorage.getItem("veges"));*/
         for(var j=0;j<importItem.length;j++){
@@ -877,13 +876,14 @@
                             $("#price").val(),
                             $("#number").val()*/
                         ]).draw();
-
+                        $("#importitemId").val(null);
                         $("#vegesname").val(null);
                         $("#price").val(null);
                         $("#number").val(null);
                     }
                     else{
                         alert("添加失败，请重新输入");
+                        $("#importitemId").val(null);
                         $("#vegesname").val(null);
                         $("#price").val(null);
                         $("#number").val(null);
@@ -898,6 +898,7 @@
         }
         else {
             alert("输入不存在！");
+            $("#importitemId").val(null);
             $("#vegesname").val(null);
             $("#price").val(null);
             $("#number").val(null);
@@ -909,12 +910,13 @@
         //传对象时设置对象状态为未完成，成功加完明细后改状态为完成。
         var token = localStorage.getItem("token");
         var instoreInfo = JSON.parse(localStorage.getItem("instoreinfo"));
+        alert(instoreInfo.id);
         $.ajax({
-            url: url + "/api/addimpodone",
+            url: url + "/api/addinstoredone",
             type: "get",
             async:false,
             contentType: "application/json;charset=utf-8",
-            data:{"importId":importInfo.id},
+            data:{"instoreId":instoreInfo.id},
             datatype: "json",
             beforeSend: function (request) {
               /*alert("test");*/
@@ -923,7 +925,7 @@
             success: function (data) {
               /*alert(JSON.stringify(data));*/
               alert("该入库单已成功生成");
-                $(window).attr('location', 'makeimport.html');
+                $(window).attr('location', 'currentimpoitem.html');
             }
             ,
             error: function () {
@@ -933,7 +935,7 @@
 
     }
     function cancle() {
-       $(window).attr('location', 'makeinstore.html');
+       $(window).attr('location', 'currentimpoitem.html');
     }
  function authtest() {
      var token =localStorage.getItem("token");
