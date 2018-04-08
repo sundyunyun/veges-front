@@ -353,6 +353,7 @@
                         <th>名称</th>
                         <th>价格</th>
                         <th>描述</th>
+                        <th>状态</th>
                         <th>创建时间</th>
                         <th>最后修改时间</th>
                         <th>操作</th>
@@ -467,6 +468,11 @@
                         <input id="des" placeholder="菜品描述" class="form-control col-md-7 col-xs-12"  required="required" type="text">
                       </div>
                     </div>
+
+                    <div class="btn-group">
+            <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+            <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+          </div>
                     <!-- <div class="item form-group">
                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="vegesname">蔬菜<span class="required">*</span> </label>
                        <div class="col-md-6 col-sm-6 col-xs-12">
@@ -642,8 +648,6 @@
       //页面一加载就展示自己的信息
         function show() {
             var token = localStorage.getItem("token");
-            var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-           /* var roleId=4;*/
 
             var t=$("#datatable-buttons").DataTable();
             $.ajax({
@@ -657,6 +661,7 @@
                 success: function (data) {
                  /* alert(JSON.stringify(data));*/
                   /*var data=JSON.parse(data);*/
+                  localStorage.setItem("veges",JSON.stringify(data));
                     for(var i=0;i<data.length;i++)
                     {
                             t.row.add([
@@ -665,11 +670,13 @@
                                 data[i].name,
                                 data[i].price,
                                 data[i].des,
+                                data[i].state,
                                 data[i].creationDate,
                                 data[i].lastUpdateDate,
                                 //备用，查看位置？
-                                "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='view(" + data[i].id + ")'><i class=\"fa fa-pencil\"></i>修改</button>"
-                                /*"<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick='del(" + data[i].id + ")'><i class=\"fa fa-trash-o\"></i>删除</button>"*/
+                                "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='change(" + data[i].id + ")'><i class=\"fa fa-pencil\"></i>修改</button>"+
+                                "<button type=\"button\" class=\"btn btn-success btn-xs\" onclick='on(" + data[i].id + ")'>上架</button>"+
+                                "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick='off(" + data[i].id + ")'>下架</button>"
                               /*  "<button onclick='view("+data[i].id+")'>查看详情</button>"*/
                             ]).draw();
                     }
@@ -696,6 +703,7 @@
                     {
                         $("#types").append("<option >"+data[i].type+"</option>");
                     }
+                    localStorage.setItem("types",JSON.stringify(data));
                 }
                 ,
                 error:function () {
@@ -758,7 +766,7 @@
 
         }
         //离职状态
-      function del(id) {
+   /*   function del(id) {
           var token = localStorage.getItem("token");
           var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
 
@@ -772,7 +780,7 @@
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
               },
               success: function (data) {
-                /*alert(JSON.stringify(data));*/
+                /!*alert(JSON.stringify(data));*!/
                   if(data!="")
                       $(window).attr('location', 'driver.html');
               }
@@ -781,9 +789,9 @@
                   alert("access denied");
               }
           });
-      }
+      }*/
         //根据供应商id查看供应商菜品信息
-      function view(id) {
+      /*function view(id) {
           var token = localStorage.getItem("token");
           var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
 
@@ -795,16 +803,16 @@
               data:{"supplierId":id},
               datatype:"json",
               beforeSend: function (request) {
-                  /*alert("authtest");
-                  alert(id);*/
+                  /!*alert("authtest");
+                  alert(id);*!/
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
               },
               success: function (data) {
 
-                  /*alert(JSON.stringify(data));*/
-          /*        var supplierveges =data;
+                  /!*alert(JSON.stringify(data));*!/
+          /!*        var supplierveges =data;
                   //将后台获取到的菜品信息放进locaiStorage里面
-                  localStorage.setItem("supplierveges",JSON.stringify(supplierveges));*/
+                  localStorage.setItem("supplierveges",JSON.stringify(supplierveges));*!/
                   //将供应商放入localStorage,更新供应商信息时可修改
                   localStorage.setItem("supplierId",JSON.stringify(id));
 
@@ -816,41 +824,117 @@
               }
           });
 
+      }*/
+
+      function change(id) {
+          localStorage.setItem("vegesId",JSON.stringify(id));
+          $(window).attr('location', 'changeveges.html');
       }
 
       function addvege() {
           var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+          var vegeslist=JSON.parse(localStorage.getItem("veges"));
           var un=$("#type").val();
-          if(un=="")
+          var name=$("#vegesname").val();
+          var price=$("#price").val();
+          var des=$("#des").val();
+          var bool=true;
+          for(var j=0;j<vegeslist.length;j++)
+          {
+              if(vegeslist[j].name==name)
+              {
+                  bool=false;
+                  alert("蔬菜已存在，重新输入");
+              }
+          }
+
+          if(un==""&&name==""&&price=="")
           {
               alert("不可为空！");
           }
           else{
-              var addtype ={"type":un};
-              $.ajax({
-                  url: url + "/api/addtype",
-                  type: "post",
-                  async:false,
-                  contentType: "application/json;charset=utf-8",
-                  data: JSON.stringify(addtype),
-                  datatype: "json",
-                  success: function (data) {
-                    /*alert(JSON.stringify(data));*/
-                      if (data !="") {
-                          $(window).attr('location', 'type.html');
+              var types=JSON.parse(localStorage.getItem("type"));
+              var typeId;
+              for(var i=0;i<types.length;i++)
+              {
+                  if(types[i].type==un)
+                  {
+                      typeId=types[i].id;
+                  }
+              }
+              if(bool){
+                  var veges ={"typeId":typeId,"name":name,"price":price,"des":des};
+                  $.ajax({
+                      url: url + "/api/addveges",
+                      type: "post",
+                      async:false,
+                      contentType: "application/json;charset=utf-8",
+                      data: JSON.stringify(veges),
+                      datatype: "json",
+                      success: function (data) {
+                        /*alert(JSON.stringify(data));*/
+                              alert("添加成功");
+                              $(window).attr('location', 'veges.html');
+
+
                       }
-                      if(data=="")
-                          alert("用户名重复");
-                  }
-                  ,
-                  error: function () {
-                      alert("access deined");
-                  }
-              });
+                      ,
+                      error: function () {
+                          alert("access deined");
+                      }
+                  });
+              }
+
           }
           //$(window).attr('location','view/index.html');
 
+      }
+      //改状态为上架，id为蔬菜id
+      function on(id) {
+          var token = localStorage.getItem("token");
+
+          $.ajax({
+              url:url+"/api/changeon",
+              type:"get",
+              contentType:"application/json",
+              data:{"vegesId":id},
+              datatype:"json",
+              beforeSend: function (request) {
+                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+              },
+              success: function (data) {
+                /*alert(JSON.stringify(data));*/
+                  if(data!="")
+                      $(window).attr('location', 'veges.html');
+              }
+              ,
+              error:function () {
+                  alert("access denied");
+              }
+          });
+      }
+      function off(id) {
+          var token = localStorage.getItem("token");
+
+          $.ajax({
+              url:url+"/api/changeoff",
+              type:"get",
+              contentType:"application/json",
+              data:{"vegesId":id},
+              datatype:"json",
+              beforeSend: function (request) {
+                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+              },
+              success: function (data) {
+                /*alert(JSON.stringify(data));*/
+                  if(data!="")
+                      $(window).attr('location', 'veges.html');
+              }
+              ,
+              error:function () {
+                  alert("access denied");
+              }
+          });
       }
 
     </script>

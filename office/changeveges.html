@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	  
     <title>Fresh!Buy | </title>
 
     <!-- Bootstrap -->
@@ -17,12 +17,16 @@
     <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- Datatables -->
-    <link href="../../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="../../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="../../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../../build/css/custom.min.css" rel="stylesheet">
@@ -34,7 +38,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Fresh!Buy!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Fresh!Buy</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -298,13 +302,13 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>菜品种类 <small></small></h3>
+                <h3>修改蔬菜信息</h3>
               </div>
 
+              <!--查询-->
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
@@ -316,14 +320,12 @@
                 </div>
               </div>
             </div>
-
             <div class="clearfix"></div>
-
-            <div class="row">
+           <!-- <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>种类信息 <small ></small></h2>
+                    <h2>Form Design <small>different form elements</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -342,190 +344,191 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-                    </p>
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
-                      <thead >
-                      <tr>
-                        <th>编号</th>
-                        <th>种类</th>
-                        <th>创建时间</th>
-                      </tr>
-                      </thead>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <div id="gender" class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                            </label>
+                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="gender" value="female"> Female
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button">Cancel</button>
+						  <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
 
-                    </table>
+                    </form>
                   </div>
-                  <!--<div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-
-                    </p>
-                    <div id="datatable-buttons_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="dt-buttons btn-group"><a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Copy</span></a><a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>CSV</span></a><a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons" href="#"><span>Print</span></a></div><div id="datatable-buttons_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-buttons"></label></div><table id="datatable-buttons" class="table table-striped table-bordered dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable-buttons_info" style="width: 1031px;"><thead><tr><th>名称</th><th>地址</th><th>电话</th><th>操作</th></tr></thead><tbody></tbody></table><div class="dataTables_info" id="datatable-buttons_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div><div class="dataTables_paginate paging_simple_numbers" id="datatable-buttons_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="datatable-buttons_previous"><a href="#" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button next disabled" id="datatable-buttons_next"><a href="#" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">Next</a></li></ul></div></div>
-                  </div>-->
                 </div>
               </div>
-             <!-- <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                  <th>编号</th>
-                  <th>头像</th>
-                  <th>用户名</th>
-                  <th>名称</th>
-                  <th>电话</th>
-                  <th>地址</th>
-                  <th>采购员</th>
-                  <th>状态</th>
-                  <th>操作</th>
-                </tr>
-                </thead>
-            &lt;!&ndash;    <tbody>
-                &lt;!&ndash;<tr>
-                  <td>Tiger</td>
-                  <td>Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                  <td>5421</td>
-                  <td>t.nixon@datatables.net</td>
-                </tr>
-                <tr>
-                  <td>Garrett</td>
-                  <td>Winters</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>63</td>
-                  <td>2011/07/25</td>
-                  <td>$170,750</td>
-                  <td>8422</td>
-                  <td>g.winters@datatables.net</td>
-                </tr>&ndash;&gt;
+            </div>-->
 
+            <div class="row" >
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>基本信息 <small>修改</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left input_mask">
 
+                <!--      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="namee" placeholder="姓名">
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
 
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="gender" placeholder="性别">
+                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      </div>
 
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="email" placeholder="邮件">
+                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                      </div>
 
-                </tbody>&ndash;&gt;
-              </table>-->
-            </div>
-          </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control" id="tel" placeholder="电话">
+                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      </div>-->
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">菜品编号</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" disabled="disabled" id="vegesId">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">状态</label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" required="" id="state">
+                          </div>
+                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">菜品名称</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control"  id="vegesname">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">种类</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" id="type" list="types">
+                          <datalist id="types">
 
-          <!--<div class="btn-group">
-            <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-            <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-          </div>-->
-          <!--添加种类-->
-          <button type="button" class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加</button>
-          <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content">
+                          </datalist>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">价格 </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="number" class="form-control" id="price">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">描述</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control"  required="" id="des">
+                        </div>
+                      </div>
+                      <!--<div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">部门</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input" id="deptId">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">岗位</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input" id="role">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">入职时间</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input" id="createDate">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">所属仓库编号</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input" id="storeId">
+                        </div>
+                      </div>-->
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <a type="button" class="btn btn-primary" href="veges.html">取消</a>
+						   <button class="btn btn-primary" type="reset">重置</button>
+                          <a onclick="change()" class="btn btn-success">提交</a>
+                        </div>
+                      </div>
 
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel2">添加蔬菜种类</h4>
+                    </form>
+                  </div>
                 </div>
-                <div class="modal-body">
-                  <h4> 请输入种类</h4>
-                  <form class="form-horizontal form-label-left" novalidate>
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">种类名称</label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="form-control" id="type" placeholder="种类名称">
-                      </div>
-                    </div>
-                    <!-- <div class="item form-group">
-                       <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="password">密码<span class="required">*</span> </label>
-                       <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input class="form-control col-md-7 col-xs-12" id="password" placeholder="密码" required="required" type="text"/>
-                        &lt;!&ndash; <datalist id="veges">
-                           &lt;!&ndash;  <option value="Afghanistan 阿富汗">
-                             <option value="Albania 阿尔巴尼亚">
-                             <option value="Algeria 阿尔及利亚">
-                             <option value="Andorra 安道尔共和国">
-                             <option value="Angola 安哥拉">&ndash;&gt;
-                         </datalist>&ndash;&gt;
-                       </div>
-                     </div>
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="drivername">姓名 <span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="drivername" placeholder="姓名" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-pattern="" name="name"  required="required" type="text">
-                      </div>
-                    </div>-->
-                    <!-- <div class="item form-group">
-                       <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="vegesname">蔬菜<span class="required">*</span> </label>
-                       <div class="col-md-6 col-sm-6 col-xs-12">
-                         <input class="form-control col-md-7 col-xs-12" id="vegesname" placeholder="蔬菜名称" required="required" type="text" list="veges" />
-                         <datalist id="veges">
-                           &lt;!&ndash;  <option value="Afghanistan 阿富汗">
-                             <option value="Albania 阿尔巴尼亚">
-                             <option value="Algeria 阿尔及利亚">
-                             <option value="Andorra 安道尔共和国">
-                             <option value="Angola 安哥拉">&ndash;&gt;
-                         </datalist>
-                       </div>
-                     </div>-->
-
-                <!--    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">电话<span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="number" id="tel" placeholder="电话" required="required"  class="form-control col-md-7 col-xs-12" >
-                      </div>
-                    </div>
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email<span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="email" id="email" placeholder="Email" required="required"  class="form-control col-md-7 col-xs-12">
-                      </div>
-                    </div>
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender">性别<span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="gender" placeholder="性别" required="required"  class="form-control col-md-7 col-xs-12">
-                      </div>
-                    </div>
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="age">年龄<span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="number" id="age" placeholder="年龄" required="required"  class="form-control col-md-7 col-xs-12" >
-                      </div>
-                    </div>-->
-                    <div class="ln_solid"></div>
-                  </form>
-
-                  <!--<form  novalidate>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control" disabled="disabled" placeholder="进货单编号" id="importId">
-                  </div>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control"  placeholder="蔬菜名称" id="vegesname" required="required" class="form-control col-md-7 col-xs-12">
-                  </div>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control"  placeholder="蔬菜单价" id="price">
-                  </div>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" class="form-control"  placeholder="蔬菜数量" id="number">
-                  </div>
-                  </form>-->
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" onclick="addtype()" data-dismiss="modal">添加</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal"  >取消</button>
-                </div>
-
 
               </div>
+
             </div>
+
           </div>
         </div>
-
         <!-- /page content -->
 
         <!-- footer content -->
@@ -537,7 +540,7 @@
         </footer>
         <!-- /footer content -->
       </div>
-    </div>
+      </div>
 
     <!-- jQuery -->
     <script src="../../vendors/jquery/dist/jquery.min.js"></script>
@@ -547,53 +550,19 @@
     <script src="../../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
     <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../../vendors/Flot/jquery.flot.js"></script>
-    <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="../../vendors/moment/min/moment.min.js"></script>
     <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Datatables -->
-    <script src="../../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../../vendors/pdfmake/build/vfs_fonts.js"></script>
-    <!-- validator -->
-    <script src="../../vendors/validator/validator.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="../../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="../../vendors/google-code-prettify/src/prettify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="../../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
     <!-- Switchery -->
     <script src="../../vendors/switchery/dist/switchery.min.js"></script>
     <!-- Select2 -->
@@ -606,67 +575,30 @@
     <script src="../../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="../../vendors/starrr/dist/starrr.js"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="../../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="../../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="../../vendors/google-code-prettify/src/prettify.js"></script>
-    <!-- jQuery Tags Input -->
-    <script src="../../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../build/js/custom.min.js"></script>
-    <!--  my js-->
+
+<!--  my js-->
     <script src="../../dist/js/base.js"></script>
     <script>
-
-      $(function () {
-          //加载个人信息
-          var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-          $("#name").html(baseInfo.user.name);
-          show();
-      });
-
-      //页面一加载就展示自己的信息
-        function show() {
+        $(function () {
+            //加载个人信息
             var token = localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-           /* var roleId=4;*/
+            $("#name").html(baseInfo.user.name);
+           //需要解码
+            showveges();
+            showtype();
+            show();
 
-            var t=$("#datatable-buttons").DataTable();
-            $.ajax({
-                url:url+"/api/getalltype",
-                type:"get",
-                contentType:"application/json",
-                datatype:"json",
-                beforeSend: function (request) {
-                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-                },
-                success: function (data) {
-                 /* alert(JSON.stringify(data));*/
-                  /*var data=JSON.parse(data);*/
-                    for(var i=0;i<data.length;i++)
-                    {
-                            t.row.add([
-                                data[i].id,
-                               data[i].type,
-                                data[i].creationDate,
-                                //备用，查看位置？
-                               /* "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='view(" + data[i].id + ")'>详情</button>"+*/
-                                /*"<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick='del(" + data[i].id + ")'><i class=\"fa fa-trash-o\"></i>删除</button>"*/
-                              /*  "<button onclick='view("+data[i].id+")'>查看详情</button>"*/
-                            ]).draw();
-                    }
-                }
-                ,
-                error:function () {
-                    alert("access denied");
-                }
-            });
-        }
+            // $("#password").html(baseInfo.user.password);
+        });
 
+//权限接口
         function authtest() {
             var token =localStorage.getItem("token");
             var baseInfo=JSON.parse(localStorage.getItem("baseinfo"));
+
             //测试权限接口
             $.ajax({
                 url: url + "/api/user",
@@ -675,10 +607,15 @@
                 data:{"id":baseInfo.user.id},
                 datatype: "json",
                 beforeSend: function (request) {
+                    alert("test");
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
+                    baseInfo.user = data;
                     alert(JSON.stringify(data));
+//                    baseInfo.user=data;
+                    localStorage.setItem("baseinfo",JSON.stringify(baseInfo));
+                    //更新localStorage里的信息。
                     $(window).attr('location','personinfo.html');
                 }
                 ,
@@ -687,7 +624,8 @@
                 }
             });
         }
-        //测试修改接口权限
+
+        //修改权限接口
         function authtests() {
             var token=localStorage.getItem("token");
             var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
@@ -708,110 +646,176 @@
                 },
                 success: function (data) {
                     alert(JSON.stringify(data));
-                    $(window).attr('location','changebuyerinfo.html');
+                    $(window).attr('location','changeinfo.html');
+                }
+                ,
+                error:function () {
+                    alert("access denied");
+                }
+
+            });
+
+        }
+        function showveges() {
+            $.ajax({
+                url:url+"/api/allveges",
+                type:"get",
+                contentType:"application/json",
+                datatype:"json",
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                  /* alert(JSON.stringify(data));*/
+                  /*var data=JSON.parse(data);*/
+                    localStorage.setItem("veges",JSON.stringify(data));
                 }
                 ,
                 error:function () {
                     alert("access denied");
                 }
             });
+        }
+        function showtype() {
+            $.ajax({
+                url:url+"/api/getalltype",
+                type:"get",
+                contentType:"application/json",
+                datatype:"json",
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                  /* alert(JSON.stringify(data));*/
+                  /*var data=JSON.parse(data);*/
+                    for(var i=0;i<data.length;i++)
+                    {
+                        $("#types").append("<option >"+data[i].type+"</option>");
+                    }
+                    localStorage.setItem("types",JSON.stringify(data));
+                }
+                ,
+                error:function () {
+                    alert("access denied");
+                }
+            });
+        }
+        function show() {
+            var vegesId=JSON.parse(localStorage.getItem("vegesId"));
+            var types=JSON.parse(localStorage.getItem("types"));
+            $("#vegesId").val(vegesId);
+
+            $.ajax({
+                url:url+"/api/getvegesById",
+                type:"get",
+                contentType:"application/json",
+                data:{"vegesId":vegesId},
+                datatype:"json",
+                beforeSend: function (request) {
+                  /* alert(JSON.stringify(user));*/
+                    request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                },
+                success: function (data) {
+                  /* alert(JSON.stringify(data));*/
+                  /*var u=JSON.parse(data);*/
+                    $("#vegesname").val(data.name);
+                    $("#price").val(data.price);
+                    $("#des").val(data.des);
+                    $("#state").val(data.state);
+                    for(var i=0;i<types.length;i++)
+                    {
+                        if(types[i].id==data.typeId)
+                        {
+                            $("#type").val(types[i].type);
+                        }
+                    }
+
+                    var tempveges=JSON.parse(localStorage.getItem("veges"));
+                    for(var j=0;j<tempveges.length;j++)
+                    {
+                        if(tempveges[j].name==data.name)
+                        {
+
+                            tempveges[j].name="temp";
+                        }
+                    }
+                    localStorage.setItem("tempveges",JSON.stringify(tempveges));
+
+                    /*$(window).attr('location','changeveges.html');*/
+                }
+                ,
+                error:function () {
+                    alert("access denied");
+                }
+            });
+        }
+        function change() {
+            var token=localStorage.getItem("token");
+            var tempveges=JSON.parse(localStorage.getItem("tempveges"));
+            var vegesId=JSON.parse(localStorage.getItem("vegesId"));
+            var types=JSON.parse(localStorage.getItem("types"));
+            var type=$("#type").val();
+            var vegesname=$("#vegesname").val();
+            var price=$("#price").val();
+            var des=$("#des").val();
+            var typeId;
+            var bool=false;
+
+            for(var j=0;j<types.length;j++)
+            {
+                if(types[j].type==type)
+                {
+                    typeId=types[j].id;
+                    bool=true;
+                }
+            }
+            for(var i=0;i<tempveges.length;i++){
+                if(vegesname==tempveges[i].name)
+                {
+                    alert("该蔬菜已存在！");
+                    bool=false;
+                }
+            }
+
+
+            if(bool){
+                var veges = {
+                    "id": vegesId,
+                    "typeId":typeId,
+                    "name": vegesname,
+                    "price":price,
+                    "des":des
+                };
+
+                $.ajax({
+                    url:url+"/api/changeveges",
+                    type:"put",
+                    contentType:"application/json",
+                    data:JSON.stringify(veges),
+                    datatype:"json",
+                    beforeSend: function (request) {
+                      /* alert(JSON.stringify(user));*/
+                        request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                    },
+                    success: function (data) {
+                      /* alert(JSON.stringify(data));*/
+                      /*var u=JSON.parse(data);*/
+                      alert("修改成功");
+                        //更新localStorage用户信息
+                       /* localStorage.setItem("vegesId",JSON.stringify(data.id));*/
+                        $(window).attr('location','changeveges.html');
+                    }
+                    ,
+                    error:function () {
+                        alert("access denied");
+                    }
+                });
+            }
+            else {
+                alert("种类不存在！");
+            }
 
         }
-        //离职状态
-      function del(id) {
-          var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-
-          $.ajax({
-              url:url+"/api/addtoblack",
-              type:"get",
-              contentType:"application/json",
-              data:{"id":id},
-              datatype:"json",
-              beforeSend: function (request) {
-                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-              },
-              success: function (data) {
-                /*alert(JSON.stringify(data));*/
-                  if(data!="")
-                      $(window).attr('location', 'driver.html');
-              }
-              ,
-              error:function () {
-                  alert("access denied");
-              }
-          });
-      }
-        //根据供应商id查看供应商菜品信息
-      function view(id) {
-          var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-
-          //i为id
-          $.ajax({
-              url:url+"/api/supplier/veges",
-              type:"get",
-              contentType:"application/json",
-              data:{"supplierId":id},
-              datatype:"json",
-              beforeSend: function (request) {
-                  /*alert("authtest");
-                  alert(id);*/
-                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-              },
-              success: function (data) {
-
-                  /*alert(JSON.stringify(data));*/
-          /*        var supplierveges =data;
-                  //将后台获取到的菜品信息放进locaiStorage里面
-                  localStorage.setItem("supplierveges",JSON.stringify(supplierveges));*/
-                  //将供应商放入localStorage,更新供应商信息时可修改
-                  localStorage.setItem("supplierId",JSON.stringify(id));
-
-            $(window).attr('location','viewsuppveges.html');
-              }
-              ,
-              error:function () {
-                  alert("access denied");
-              }
-          });
-
-      }
-
-      function addtype() {
-          var token = localStorage.getItem("token");
-          var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-          var un=$("#type").val();
-          if(un=="")
-          {
-              alert("不可为空！");
-          }
-          else{
-              var addtype ={"type":un};
-              $.ajax({
-                  url: url + "/api/addtype",
-                  type: "post",
-                  async:false,
-                  contentType: "application/json;charset=utf-8",
-                  data: JSON.stringify(addtype),
-                  datatype: "json",
-                  success: function (data) {
-                    /*alert(JSON.stringify(data));*/
-                      if (data !="") {
-                          $(window).attr('location', 'type.html');
-                      }
-                      if(data=="")
-                          alert("添加失败");
-                  }
-                  ,
-                  error: function () {
-                      alert("access deined");
-                  }
-              });
-          }
-          //$(window).attr('location','view/index.html');
-
-      }
 
     </script>
   </body>
