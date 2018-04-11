@@ -339,7 +339,7 @@
           <div class="col-md-6 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>入库单填写 <small>基础信息</small></h2>
+                <h2>出库单填写 <small>基础信息</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -377,10 +377,10 @@
                     </div>
                   </div>-->
                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">进货单编号<span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">订单编号<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="number" id="importId" disabled="disabled" required="required" data-validate-minmax="1,1000" class="form-control col-md-7 col-xs-12">
+                      <input type="number" id="orderId" disabled="disabled" required="required" data-validate-minmax="1,1000" class="form-control col-md-7 col-xs-12">
                     </div>
                   </div>
                   <div class="item form-group">
@@ -411,7 +411,7 @@
                     </div>
                   </div>
                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">总进货价<span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">总价<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <input type="number" id="totalprice" disabled="disabled" required="required"  class="form-control col-md-7 col-xs-12">
@@ -422,7 +422,7 @@
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                       <a class="btn btn-primary" onclick="cancle()">取消</a>
-                      <a onclick="addinstore()" class="btn btn-success">提交</a>
+                      <a onclick="addoutstore()" class="btn btn-success">提交</a>
                     </div>
                   </div>
                 </form>
@@ -491,12 +491,12 @@
                     <h4 class="modal-title" id="myModalLabel2">添加蔬菜</h4>
                   </div>
                   <div class="modal-body">
-                    <h4> 请输入入库明细</h4>
+                    <h4> 请输入出库明细</h4>
                     <form class="form-horizontal form-label-left" novalidate>
                       <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">入库单编号</label>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">订单编号</label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" class="form-control" disabled="disabled" id="instoreId">
+                        <input type="text" class="form-control" disabled="disabled" id="outstoreId">
                       </div>
                     </div>
                      <!-- <div class="item form-group">
@@ -507,9 +507,9 @@
                         </div>
                       </div>-->
                       <div class="item form-group">
-                     <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="importitemId">明细编号<span class="required">*</span> </label>
+                     <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="orderitemId">明细编号<span class="required">*</span> </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input onchange="check(this.value)" class="form-control col-md-7 col-xs-12" id="importitemId"  required="required" list="items" />
+                        <input onchange="check(this.value)" class="form-control col-md-7 col-xs-12" id="orderitemId"  required="required" list="items" />
                      <datalist id="items">
                      <!--  <option value="Afghanistan 阿富汗">
                        <option value="Albania 阿尔巴尼亚">
@@ -527,7 +527,7 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">进价<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">售价<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="number" id="price" disabled="disabled" required="required"  class="form-control col-md-7 col-xs-12" >
@@ -546,7 +546,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="additem()" data-dismiss="modal">添加</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clear()" >取消</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cle()" >取消</button>
                   </div>
 
 
@@ -559,7 +559,7 @@
           <div class="col-md-6 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>入库单<small>详情</small></h2>
+                <h2>出库单<small>详情</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -582,8 +582,8 @@
                   <thead>
                   <tr>
                     <th>蔬菜名称</th>
-                    <th>进货单价</th>
-                    <th>进货数量</th>
+                    <th>单价</th>
+                    <th>数量</th>
                   </tr>
                   </thead>
 
@@ -699,19 +699,18 @@
     function show() {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-        var importItem=JSON.parse(localStorage.getItem("importitem"));
-       var importid=importItem[0].importId;
-       alert(importid);
+        var orderItem=JSON.parse(localStorage.getItem("orderitem"));
+       var orderid=orderItem[0].orderId;
         $("#keeper").val(baseInfo.user.name);
         $("#storeId").val(baseInfo.user.storeId);
-        $("#importId").val(importid);
+        $("#orderId").val(orderid);
 
         $.ajax({
-            url: url + "/api/getByimportId",
+            url: url + "/api/getorderById",
             type: "get",
             async:false,
             contentType: "application/json;charset=utf-8",
-            data:{"importId":importid},
+            data:{"orderId":orderid},
             datatype: "json",
             beforeSend: function (request) {
               /*alert("test");*/
@@ -761,30 +760,36 @@
     function showitem() {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-        var importItem=JSON.parse(localStorage.getItem("importitem"));
-        for(var i=0;i<importItem.length;i++){
-            $("#items").append("<option >"+importItem[i].id+"</option>");
+        var orderItem=JSON.parse(localStorage.getItem("orderitem"));
+        for(var i=0;i<orderItem.length;i++){
+            $("#items").append("<option >"+orderItem[i].id+"</option>");
         }
     }
     function check(id) {
-        var importItem=JSON.parse(localStorage.getItem("importitem"));
-        for(var i=0;i<importItem.length;i++){
-            if(id==importItem[i].id)
+        var orderItem=JSON.parse(localStorage.getItem("orderitem"));
+        for(var i=0;i<orderItem.length;i++){
+            if(id==orderItem[i].id)
             {
-                $("#vegesname").val(importItem[i].name);
-                $("#price").val(importItem[i].price);
-                $("#number").val(importItem[i].number);
+                $("#vegesname").val(orderItem[i].name);
+                $("#price").val(orderItem[i].price);
+                $("#number").val(orderItem[i].number);
             }
         }
     }
+    function cle() {
+        $("#orderitemId").val(null);
+        $("#vegesname").val(null);
+        $("#price").val(null);
+        $("#number").val(null);
+    }
 //生成入库单，总重由库管员负责
-    function addinstore() {
+    function addoutstore() {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
         //返回一个import实体对象，传对象时设置对象状态为未完成，成功加完明细后改状态为完成。
-        var importItem=JSON.parse(localStorage.getItem("importitem"));
+        var orderItem=JSON.parse(localStorage.getItem("orderitem"));
 
-        var addinstore={"importId":$("#importId").val(),
+        var addoutstore={"orderId":$("#orderId").val(),
             "keeperId":baseInfo.user.id,
             "driverId":$("#driverId").val(),
             "totalprice":$("#totalprice").val(),
@@ -793,11 +798,11 @@
             "state":"出库未完成"};
         //前台有输入为空的打回null！
         $.ajax({
-            url: url + "/api/addinstore",
+            url: url + "/api/addoutstore",
             type: "post",
             async:false,
             contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(addinstore),
+            data: JSON.stringify(addoutstore),
             datatype: "json",
             beforeSend: function (request) {
                 /*alert(JSON.stringify(addimpo));*/
@@ -805,9 +810,9 @@
             },
             success: function (data) {
                 if (data!= "") {
-                    $("#instoreId").val(data.id);
+                    $("#outstoreId").val(data.id);
                     //放入instoreId
-                    localStorage.setItem("instoreinfo",JSON.stringify(data));
+                    localStorage.setItem("outstoreinfo",JSON.stringify(data));
                     alert("添加成功");
                    /* $(window).attr('location', 'login.html');*/
                 }
@@ -823,16 +828,17 @@
 
     function additem() {
         var token = localStorage.getItem("token");
-        var instoreInfo = JSON.parse(localStorage.getItem("instoreinfo"));
-        var importItem=JSON.parse(localStorage.getItem("importitem"));
+        var outstoreInfo = JSON.parse(localStorage.getItem("outstoreinfo"));
+        var orderItem=JSON.parse(localStorage.getItem("orderitem"));
         var bool=false;
         /*var vegesId;*/
         var t=$("#datatable-responsive").DataTable();
        /* $("#instoreId").val(instoreInfo.id);*/
 
         /*var Veges=JSON.parse(localStorage.getItem("veges"));*/
-        for(var j=0;j<importItem.length;j++){
-            if($("#importitemId").val()==importItem[j].id)
+        //保证modal框输入订单明细时该订单item存在
+        for(var j=0;j<orderItem.length;j++){
+            if($("#orderitemId").val()==orderItem[j].id)
             {
                /* vegesId=Veges[j].id;*/
 
@@ -844,7 +850,7 @@
             var name=$("#vegesname").val();
               var price= $("#price").val();
                var number=$("#number").val();
-            var item={"instoreId":instoreInfo.id,
+            var outstoreItem={"outstoreId":outstoreInfo.id,
                 "name":name,
                 "price":price,
                 "number":number};
@@ -856,11 +862,11 @@
 
             //前台有输入为空的打回null！
             $.ajax({
-                url: url + "/api/addinstoreitem",
+                url: url + "/api/addoutstoreitem",
                 type: "post",
                 async:false,
                 contentType: "application/json;charset=utf-8",
-                data: JSON.stringify(item),
+                data: JSON.stringify(outstoreItem),
                 datatype: "json",
                 beforeSend: function (request) {
                    /* alert(JSON.stringify(addimpo));*/
@@ -876,14 +882,14 @@
                             $("#price").val(),
                             $("#number").val()*/
                         ]).draw();
-                        $("#importitemId").val(null);
+                        $("#orderitemId").val(null);
                         $("#vegesname").val(null);
                         $("#price").val(null);
                         $("#number").val(null);
                     }
                     else{
                         alert("添加失败，请重新输入");
-                        $("#importitemId").val(null);
+                        $("#orderitemId").val(null);
                         $("#vegesname").val(null);
                         $("#price").val(null);
                         $("#number").val(null);
@@ -898,7 +904,7 @@
         }
         else {
             alert("输入不存在！");
-            $("#importitemId").val(null);
+            $("#orderitemId").val(null);
             $("#vegesname").val(null);
             $("#price").val(null);
             $("#number").val(null);
@@ -906,18 +912,18 @@
 
     }
 //生成入库单之后修改进货单状态为配送完成,并修改仓库存储量
-    //生成出库单后修改订单状态为已出货，配送中
+    //生成出库单后修改订单状态为已出货，配送中,修改仓库存储量
     function add() {
         //传对象时设置对象状态为未完成，成功加完明细后改状态为完成。
         var token = localStorage.getItem("token");
-        var instoreInfo = JSON.parse(localStorage.getItem("instoreinfo"));
-        alert(instoreInfo.id);
+        var outstoreInfo = JSON.parse(localStorage.getItem("outstoreinfo"));
+       /* alert(instoreInfo.id);*/
         $.ajax({
-            url: url + "/api/addinstoredone",
+            url: url + "/api/addoutstoredone",
             type: "get",
             async:false,
             contentType: "application/json;charset=utf-8",
-            data:{"instoreId":instoreInfo.id},
+            data:{"outstoreId":outstoreInfo.id},
             datatype: "json",
             beforeSend: function (request) {
               /*alert("test");*/
@@ -925,18 +931,24 @@
             },
             success: function (data) {
               /*alert(JSON.stringify(data));*/
-              alert("该入库单已成功生成");
-                $(window).attr('location', 'currentimpoitem.html');
+              if(data!="")
+              {
+                  alert("该出库单已成功生成");
+                  $(window).attr('location', 'currentorderitem.html');
+              }
+              else {
+                  alert("生成出库单失败");
+              }
             }
             ,
             error: function () {
-                alert("生成入库单失败");
+                alert("access deined");
             }
         });
 
     }
     function cancle() {
-       $(window).attr('location', 'currentimpoitem.html');
+       $(window).attr('location', 'currentorderitem.html');
     }
  function authtest() {
      var token =localStorage.getItem("token");
