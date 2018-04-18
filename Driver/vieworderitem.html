@@ -294,14 +294,14 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>当前进货单</h3>
+                <h3>当前出货单</h3>
               </div>
 
              <!-- 查询-->
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <button  type="button" class="btn btn-success" onclick="confirm()">确认配送</button>
-                  <button  type="button" class="btn btn-info" onclick="done()">配送完成</button>
+                  <!--<button  type="button" class="btn btn-success" onclick="confirm()">确认配送</button>-->
+                  <button  type="button" class="btn btn-info" onclick="done()">返回</button>
                 </div>
               </div>
 
@@ -313,7 +313,7 @@
               <div class="col-md-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>进货单明细 <small></small></h2>
+                    <h2>出货单明细 <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -338,8 +338,8 @@
                       <div class="row">
                         <div class="col-xs-12 invoice-header">
                           <h1>
-                            <i class="fa fa-globe"></i> 进货单.
-                            <small class="pull-right" id="creationDate"></small>
+                            <i class="fa fa-globe"></i> 出货订单.
+                            <small class="pull-right"></small>
                           </h1>
                         </div>
                         <!-- /.col -->
@@ -347,31 +347,27 @@
                       <!-- info row -->
                       <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                          供应商
+                          客户
                           <address>
-                            <strong id="suppname"></strong>
-                            <br ><b id="suppaddress"></b>
-                            <br ><b id="supptel"></b>
-                            <br ><b id="suppemail"></b>
+                            <strong id="customername"></strong>
+                            <br ><b id="address"></b>
+                            <br ><b id="tel"></b>
                           </address>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
-                          仓库
+                          备注
                           <address>
-                            <strong id="storename"></strong>
-                            <br ><b id="storeaddress"></b>
-                            <br ><b id="storetel"></b>
+                            <strong id="msg"></strong>
                           </address>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
-                          <b >进货单编号：</b><b id="importId"></b>
+                          <b >订单编号：</b><b id="orderId"></b>
                           <br>
                           <br>
-                          <b >采购员:</b> <b id="buyername"></b>
+                          <b >订单日期:</b> <b id="creationDate"></b>
                           <br>
-                          <b >进货单状态:</b> <b id="importstate"></b>
                         </div>
                         <!-- /.col -->
                       </div>
@@ -380,7 +376,7 @@
                       <!-- Table row -->
                       <div class="row">
                         <div class="col-xs-12 table">
-                          <table class="table table-striped" id="importitem">
+                          <table class="table table-striped" id="orderitem">
                             <thead>
                             <tr>
                               <th>编号</th>
@@ -411,7 +407,7 @@
                         </div>-->
                         <!-- /.col -->
                         <div class="col-xs-6">
-                          <p class="lead">进货单：</p>
+                          <p class="lead">订单：</p>
                           <div class="table-responsive">
                             <table class="table" id="t">
                              <!-- <tbody>
@@ -533,37 +529,32 @@
     function show() {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
+        var orderId=JSON.parse(localStorage.getItem("orderId"));
 
         $.ajax({
-            url:url+"/api/getcurrentimpo",
+            url:url+"/api/getorderById",
             type:"get",
             contentType:"application/json",
-            data:{"driverId":baseInfo.user.id},
+            data:{"orderId":orderId},
             datatype:"json",
             beforeSend: function (request) {
-                alert("test");
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
               /*alert(JSON.stringify(data));*/
               /* var data=JSON.parse(data);*/
-              $("#creationDate").html("时间："+data.impo.creationDate);
-              $("#suppname").html(data.suppname);
-              $("#suppaddress").html(data.supplier.location);
-              $("#supptel").html(data.supplier.tel);
-              $("#suppemail").html(data.supplier.email);
-              $("#storename").html(data.storeHouse.name);
-              $("#storeaddress").html(data.storeHouse.address);
-              $("#storetel").html(data.storeHouse.tel);
-              $("#importId").html(data.impo.id);
-                $("#buyername").html(data.buyername);
-                $("#importstate").html(data.impo.state);
+              $("#creationDate").html(data.order.creationDate);
+              $("#customername").html(data.customer.name);
+              $("#address").html(data.order.address);
+              $("#tel").html(data.order.tel);
+              $("#orderId").html(orderId);
+               /* $("#importstate").html(data.impo.state);*/
 
-                $("#t").append("<tr>"+"<th>配送：</th>"+"<td>"+data.drivname+"</td>"+"</tr>");
-                $("#t").append("<tr>"+"<th>总重：</th>"+"<td>"+data.impo.totalprice+"</td>"+"</tr>");
-                $("#t").append("<tr>"+"<th>总价：</th>"+"<td>"+data.impo.totalweight+"</td>"+"</tr>");
-                showitem(data.impo.id);
-                localStorage.setItem("importId",JSON.stringify(data.impo.id));
+                $("#t").append("<tr>"+"<th>配送：</th>"+"<td>"+data.driver.name+"</td>"+"</tr>");
+                $("#t").append("<tr>"+"<th>总重：</th>"+"<td>"+data.order.totalprice+"</td>"+"</tr>");
+                $("#t").append("<tr>"+"<th>总价：</th>"+"<td>"+data.order.totalweight+"</td>"+"</tr>");
+                showitem(data.order.id);
+                /*localStorage.setItem("orderId",JSON.stringify(data.order.id));*/
             }
             ,
             error:function () {
@@ -576,8 +567,8 @@
     function showitem(id) {
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
-        var t=$("#importitem").DataTable();
-        $.ajax({
+        var t=$("#orderitem").DataTable();
+       /* $.ajax({
             url:url+"/api/getbyimpoId",
             type:"get",
             contentType:"application/json",
@@ -587,7 +578,36 @@
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-           /*   alert(JSON.stringify(data));*/
+           /!*   alert(JSON.stringify(data));*!/
+              /!*var data=JSON.parse(data);*!/
+                for(var i=0;i<data.length;i++)
+                {
+                    t.row.add([
+                        data[i].id,
+                        data[i].name,
+                        data[i].price,
+                        data[i].number,
+                        data[i].total
+                    ]).draw();
+                }
+            }
+            ,
+            error:function () {
+                alert("access denied");
+            }
+        });*/
+        $.ajax({
+            url:url+"/api/getitemByorderid",
+            type:"get",
+            contentType:"application/json",
+            data:{"orderId":id},
+            datatype:"json",
+            beforeSend: function (request) {
+              /* alert("authtest");*/
+                request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+            },
+            success: function (data) {
+              /*alert(JSON.stringify(data));*/
               /*var data=JSON.parse(data);*/
                 for(var i=0;i<data.length;i++)
                 {
@@ -653,7 +673,7 @@
         });
     }
     function done() {
-      $(window).attr('location','currentImpo.html');
+      $(window).attr('location','currentorderlist.html');
     }
  function authtest() {
      var token =localStorage.getItem("token");

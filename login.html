@@ -75,7 +75,6 @@
 <script src="../dist/js/base.js"></script>
 <script>
     function login() {
-        console.log("dafdaf");
 //        $("#btn-login").click(function () {
             localStorage.clear();
 
@@ -93,7 +92,7 @@
                         localStorage.setItem("token", data.token);
                         localStorage.setItem("baseinfo", JSON.stringify(data));
                         /*if(data.role.role=="customer")*/
-                        $(window).attr('location', 'keeper/index.html');
+                        $(window).attr('location', 'Driver/index.html');
                     }
                     else
                         alert("用户名不存在或密码错误！")
