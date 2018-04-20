@@ -479,7 +479,7 @@
               </div>
             </div>
           </div>
-          <!--添加蔬菜-->
+          <!--添加蔬菜 Modal-->
             <button type="button" class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加</button>
             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog modal-sm">
@@ -546,7 +546,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="additem()" data-dismiss="modal">添加</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clear()" >取消</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cle()" >取消</button>
                   </div>
 
 
@@ -757,6 +757,12 @@
             }
         });
     }
+    function cle() {
+        $("#importitemId").val(null);
+        $("#vegesname").val(null);
+        $("#price").val(null);
+        $("#number").val(null);
+    }
 
     function showitem() {
         var token = localStorage.getItem("token");
@@ -831,6 +837,7 @@
        /* $("#instoreId").val(instoreInfo.id);*/
 
         /*var Veges=JSON.parse(localStorage.getItem("veges"));*/
+        //判断输入的明细编号是否存在，保障输入数据的准确性
         for(var j=0;j<importItem.length;j++){
             if($("#importitemId").val()==importItem[j].id)
             {

@@ -75,21 +75,21 @@
                       <!--<li><a href="index3.html">Dashboard3</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> 进货管理 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <!--<li><a >查看所签供应商</a></li>-->
-                      <li><a href="currentImpo.html">当前进货单</a></li>
-                      <li><a href="viewimpolist.html">历史进货单</a></li>
+                      <!--<li><a href="currentImpo.html">当前进货单</a></li>-->
+                      <li><a href="vieworderlist.html">历史订单</a></li>
                      <!-- <li><a href="form_wizards.html">Form Wizard</a></li>
                       <li><a href="form_upload.html">Form Upload</a></li>
                       <li><a href="form_buttons.html">Form Buttons</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> 出货管理 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> 下单管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="currentorderlist.html">当前出货单</a></li>
+                      <li><a href="currentorderlist.html">浏览在售蔬菜</a></li>
                       <!--<li><a href="media_gallery.html">安排司机进货</a></li>-->
-                      <li><a href="vieworderlist.html">历史出货单</a></li>
+                      <li><a href="vieworderlist.html">下单</a></li>
 <!--                      <li><a href="icons.html">Icons</a></li>
                       <li><a href="glyphicons.html">Glyphicons</a></li>
                       <li><a href="widgets.html">Widgets</a></li>
@@ -1073,11 +1073,11 @@
          data:{"id":baseInfo.user.id},
          datatype: "json",
          beforeSend: function (request) {
-             alert("test");
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
             $(window).attr('location','personinfo.html');
          }
          ,
@@ -1102,11 +1102,11 @@
          data:JSON.stringify(user),
          datatype:"json",
          beforeSend: function (request) {
-             alert(JSON.stringify(user));
+             /*alert(JSON.stringify(user));*/
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+            /* alert(JSON.stringify(data));*/
              $(window).attr('location','changeinfo.html');
          }
          ,

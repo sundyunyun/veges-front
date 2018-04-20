@@ -91,8 +91,16 @@
                     if (data.token != null) {
                         localStorage.setItem("token", data.token);
                         localStorage.setItem("baseinfo", JSON.stringify(data));
-                        /*if(data.role.role=="customer")*/
-                        $(window).attr('location', 'Driver/index.html');
+                        if(data.role.role=="customer")
+                        $(window).attr('location', 'customer/index.html');
+                        if(data.role.role=="driver")
+                            $(window).attr('location','Driver/index.html');
+                        if(data.role.role=="buyer")
+                            $(window).attr('location','index.html');
+                        if(data.role.role=="keeper")
+                            $(window).attr('location','Keeper/index.html');
+                        if(data.role.role=="office")
+                            $(window).attr('location','office/index.html');
                     }
                     else
                         alert("用户名不存在或密码错误！")

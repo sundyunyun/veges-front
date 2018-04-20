@@ -718,9 +718,9 @@
             },
             success: function (data) {
               /*alert(JSON.stringify(data));*/
-            $("#driverId").val(data.driverId);
-            $("#totalprice").val(data.totalprice);
-            $("#totalweight").val(data.totalweight);
+            $("#driverId").val(data.order.driverId);
+            $("#totalprice").val(data.order.totalprice);
+            $("#totalweight").val(data.order.totalweight);
             }
             ,
             error: function () {
