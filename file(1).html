@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../static/css/reset.css" rel="stylesheet">-->
+
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <p>上传文件： <input type="file" id="file"/></p>
+    <button onclick="doUpload()">上传</button>
+</div>
+<script>
+    function doUpload() {
+        var formData = new FormData();
+        formData.append('upload', $("#file")[0].files[0]);
+        $.ajax({
+            url: 'http://localhost:9090/api/test/file',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            async: false,
+            success: function (data) {
+                console.log("success");
+            },
+            error: function () {
+                console.log("error");
+            }
+        });
+    }
+</script>
+</body>
+</html>

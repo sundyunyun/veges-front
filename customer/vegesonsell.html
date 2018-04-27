@@ -26,6 +26,7 @@
 
     <!-- Custom Theme Style -->
     <link href="../../build/css/custom.min.css" rel="stylesheet">
+    <link href="../../dist/css/veges.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -349,14 +350,11 @@
                       <thead >
                       <tr>
                         <th>编号</th>
+                        <th>图片</th>
                         <th>种类</th>
                         <th>名称</th>
-                        <th>价格</th>
+                        <th>售价/kg</th>
                         <th>描述</th>
-                        <th>状态</th>
-                        <th>创建时间</th>
-                        <th>最后修改时间</th>
-                        <th>操作</th>
                       </tr>
                       </thead>
 
@@ -422,7 +420,7 @@
             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
           </div>-->
           <!--添加种类-->
-          <button type="button" class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加</button>
+          <!--<button type="button" class="btn btn-round btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">添加</button>
           <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm">
               <div class="modal-content">
@@ -446,11 +444,11 @@
                        <div class="col-md-6 col-sm-6 col-xs-12">
                          <input class="form-control col-md-7 col-xs-12" id="type"  required="required" type="text" list="types"/>
                          <datalist id="types">
-                           <!--  <option value="Afghanistan 阿富汗">
+                           &lt;!&ndash;  <option value="Afghanistan 阿富汗">
                              <option value="Albania 阿尔巴尼亚">
                              <option value="Algeria 阿尔及利亚">
                              <option value="Andorra 安道尔共和国">
-                             <option value="Angola 安哥拉">-->
+                             <option value="Angola 安哥拉">&ndash;&gt;
                          </datalist>
                        </div>
                      </div>
@@ -491,15 +489,15 @@
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                         <!-- <div id="alerts"></div>
-                          <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">-->
-                           <!-- <div class="btn-group">
+                         &lt;!&ndash; <div id="alerts"></div>
+                          <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">&ndash;&gt;
+                           &lt;!&ndash; <div class="btn-group">
                               <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
                               <ul class="dropdown-menu">
                               </ul>
-                            </div>-->
+                            </div>&ndash;&gt;
 
-                          <!--  <div class="btn-group">
+                          &lt;!&ndash;  <div class="btn-group">
                               <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
                               <ul class="dropdown-menu">
                                 <li>
@@ -518,8 +516,8 @@
                                   </a>
                                 </li>
                               </ul>
-                            </div>-->
-<!--
+                            </div>&ndash;&gt;
+&lt;!&ndash;
                             <div class="btn-group">
                               <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
                               <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
@@ -548,8 +546,8 @@
                                 <button class="btn" type="button">Add</button>
                               </div>
                               <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
-                            </div>-->
-                           <!-- <div class="btn-group">
+                            </div>&ndash;&gt;
+                           &lt;!&ndash; <div class="btn-group">
                               <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
                               <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
                             </div>
@@ -558,33 +556,36 @@
                               <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
                               <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
                             </div>
-                          </div>-->
-                            <p>上传图片： <input type="file" name="file" id="file"/></p>
-                            <!--<input type="button" value="上传" onclick="doUpload()"/>-->
-                     <!--     <div id="editor-one" class="editor-wrapper"></div>
+                          </div>&ndash;&gt;
+
+                          <form id="uploadForm">
+                            <p>上传图片： <input type="file" name="file"/></p>
+                           &lt;!&ndash; <input type="button" value="上传" onclick="doUpload()"/>&ndash;&gt;
+                          </form>
+                     &lt;!&ndash;     <div id="editor-one" class="editor-wrapper"></div>
 
                           <textarea name="descr" id="descr" style="display:none;"></textarea>
 
-                          <br />-->
+                          <br />&ndash;&gt;
 
                           <div class="ln_solid"></div>
 
-                         <!-- <div class="form-group">
+                         &lt;!&ndash; <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Resizable Text area</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                               <textarea class="resizable_textarea form-control" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."></textarea>
                             </div>
-                          </div>-->
+                          </div>&ndash;&gt;
                         </div>
                       </div>
                     </div>
 
 
-              <!--      <div class="btn-group">
+              &lt;!&ndash;      <div class="btn-group">
             <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-          </div>-->
-                    <!-- <div class="item form-group">
+          </div>&ndash;&gt;
+                    &lt;!&ndash; <div class="item form-group">
                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="vegesname">蔬菜<span class="required">*</span> </label>
                        <div class="col-md-6 col-sm-6 col-xs-12">
                          <input class="form-control col-md-7 col-xs-12" id="vegesname" placeholder="蔬菜名称" required="required" type="text" list="veges" />
@@ -596,9 +597,9 @@
                              <option value="Angola 安哥拉">&ndash;&gt;
                          </datalist>
                        </div>
-                     </div>-->
+                     </div>&ndash;&gt;
 
-                <!--    <div class="item form-group">
+                &lt;!&ndash;    <div class="item form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">电话<span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
@@ -625,11 +626,11 @@
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="number" id="age" placeholder="年龄" required="required"  class="form-control col-md-7 col-xs-12" >
                       </div>
-                    </div>-->
+                    </div>&ndash;&gt;
                     <div class="ln_solid"></div>
                   </form>
 
-                  <!--<form  novalidate>
+                  &lt;!&ndash;<form  novalidate>
                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <input type="text" class="form-control" disabled="disabled" placeholder="进货单编号" id="importId">
                   </div>
@@ -642,7 +643,7 @@
                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <input type="text" class="form-control"  placeholder="蔬菜数量" id="number">
                   </div>
-                  </form>-->
+                  </form>&ndash;&gt;
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" onclick="addvege()" data-dismiss="modal">添加</button>
@@ -652,7 +653,7 @@
 
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
 
         <!-- /page content -->
@@ -753,7 +754,7 @@
           var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
           $("#name").html(baseInfo.user.name);
           show();
-          showtype();
+         /* showtype();*/
       });
 
       //页面一加载就展示自己的信息
@@ -762,7 +763,7 @@
 
             var t=$("#datatable-buttons").DataTable();
             $.ajax({
-                url:url+"/api/allveges",
+                url:url+"/api/getonveges",
                 type:"get",
                 contentType:"application/json",
                 datatype:"json",
@@ -776,21 +777,16 @@
                     for(var i=0;i<data.length;i++)
                     {
                             t.row.add([
-                                data[i].id,
-                               data[i].typeId,
-                                data[i].name,
-                                data[i].price,
-                                data[i].des,
-                                data[i].state,
-                                data[i].creationDate,
-                                data[i].lastUpdateDate,
-                                //备用，查看位置？
-                                "<button type=\"button\" class=\"btn btn-info btn-xs\" onclick='change(" + data[i].id + ")'><i class=\"fa fa-pencil\"></i> 修改菜品</button>"+
-                                "<button type=\"button\" class=\"btn btn-success btn-xs\" onclick='on(" + data[i].id + ")'>上架</button>"+
-                                "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick='off(" + data[i].id + ")'>下架</button>"
-                              /*  "<button onclick='view("+data[i].id+")'>查看详情</button>"*/
+                                data[i].veges.id,
+                               "<img class='img-small' src=\"http://localhost:80/"+data[i].veges.pth+"\">",
+                               data[i].type.type,
+                                data[i].veges.name,
+                                data[i].veges.price,
+                                data[i].veges.des
                             ]).draw();
+                        console.log("<img src=\"http://localhost:9090/static/"+data[i].veges.pth+"\">")
                     }
+
                 }
                 ,
                 error:function () {
@@ -798,7 +794,7 @@
                 }
             });
         }
-        function showtype() {
+        /*function showtype() {
             $.ajax({
                 url:url+"/api/getalltype",
                 type:"get",
@@ -808,8 +804,8 @@
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
-                  /* alert(JSON.stringify(data));*/
-                  /*var data=JSON.parse(data);*/
+                  /!* alert(JSON.stringify(data));*!/
+                  /!*var data=JSON.parse(data);*!/
                     for(var i=0;i<data.length;i++)
                     {
                         $("#types").append("<option >"+data[i].type+"</option>");
@@ -821,7 +817,7 @@
                     alert("access denied");
                 }
             });
-        }
+        }*/
 
         function authtest() {
             var token =localStorage.getItem("token");
@@ -937,7 +933,7 @@
 
       }*/
 
-      function change(id) {
+    /*  function change(id) {
           localStorage.setItem("vegesId",JSON.stringify(id));
           $(window).attr('location', 'changeveges.html');
       }
@@ -963,34 +959,34 @@
           {
               alert("不可为空！");
           }
-          else {
-              var types = JSON.parse(localStorage.getItem("types"));
+          else{
+              var types=JSON.parse(localStorage.getItem("type"));
               var typeId;
-              for (var i = 0; i < types.length; i++) {
-                  if (types[i].type == un) {
-                      typeId = types[i].id;
-
+              for(var i=0;i<types.length;i++)
+              {
+                  if(types[i].type==un)
+                  {
+                      typeId=types[i].id;
                   }
               }
-              if (bool) {
-                  var veges = {"typeId": typeId, "name": name, "price": price, "des": des};
+              if(bool){
+                  var veges ={"typeId":typeId,"name":name,"price":price,"des":des};
 
                   $.ajax({
                       url: url + "/api/addveges",
                       type: "post",
-                      async: false,
+                      async:false,
                       contentType: "application/json;charset=utf-8",
                       data: JSON.stringify(veges),
                       datatype: "json",
-                      beforeSend: function (request) {
-                          request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-                      },
                       success: function (data) {
-
-                        localStorage.setItem("vegesId",JSON.stringify(data.id));
+                        /!*alert(JSON.stringify(data));*!/
                         doUpload();
-                          alert("添加成功");
-                          $(window).attr('location', 'veges.html');
+                        localStorage.setItem("vegesId",JSON.stringify(data.id));
+                              alert("添加成功");
+                              $(window).attr('location', 'veges.html');
+
+
                       }
                       ,
                       error: function () {
@@ -998,63 +994,31 @@
                       }
                   });
               }
+
           }
-          /*}*/
           //$(window).attr('location','view/index.html');
 
       }
 
       function doUpload() {
-          /*var vegesId=JSON.parse(localStorage.getItem("vegesId"));*/
-
-          var formData = new FormData();
-          formData.append('upload', $("#file")[0].files[0]);
+          var vegesId=JSON.parse(localStorage.getItem("vegesId"));
+          var formData = new FormData($("#uploadForm")[0]);
           $.ajax({
               url:url+ "/api/file",
-              type:'POST',
-              data:formData,
+              type: 'get',
+              data: {"upload":formData,"vegesId":vegesId},
               async: false,
               cache: false,
               contentType: false,
               processData: false,
               success: function (returndata) {
                   alert(returndata);
-                  addpath(returndata);
               },
               error: function (returndata) {
-                  alert("access denied");
+                  alert(returndata);
               }
           });
       }
-
-      //将添加的蔬菜后台返回的id,根据id查找蔬菜放入蔬菜的图片路径
-      function addpath(pth)
-      {
-          var vegesId=JSON.parse(localStorage.getItem("vegesId"));
-          alert(vegesId);
-
-          $.ajax({
-              url: url + "/api/addvegespath",
-              type: "get",
-              async: false,
-              contentType: "application/json;charset=utf-8",
-              data: {"vegesId":vegesId,"pth":pth},
-              datatype: "json",
-              beforeSend: function (request) {
-                  request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
-              },
-              success: function (data) {
-
-                  /*alert("添加成功");*/
-                /*  $(window).attr('location', 'veges.html');*/
-              }
-              ,
-              error: function () {
-                  alert("access deined");
-              }
-          });
-      }
-
       //改状态为上架，id为蔬菜id
       function on(id) {
           var token = localStorage.getItem("token");
@@ -1069,7 +1033,7 @@
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
               },
               success: function (data) {
-                /*alert(JSON.stringify(data));*/
+                /!*alert(JSON.stringify(data));*!/
                   if(data!="")
                       $(window).attr('location', 'veges.html');
               }
@@ -1092,7 +1056,7 @@
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
               },
               success: function (data) {
-                /*alert(JSON.stringify(data));*/
+                /!*alert(JSON.stringify(data));*!/
                   if(data!="")
                       $(window).attr('location', 'veges.html');
               }
@@ -1101,7 +1065,7 @@
                   alert("access denied");
               }
           });
-      }
+      }*/
 
     </script>
   </body>
