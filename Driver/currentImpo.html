@@ -666,11 +666,11 @@
          data:{"id":baseInfo.user.id},
          datatype: "json",
          beforeSend: function (request) {
-             alert("test");
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
             $(window).attr('location','personinfo.html');
          }
          ,
@@ -695,11 +695,11 @@
          data:JSON.stringify(user),
          datatype:"json",
          beforeSend: function (request) {
-             alert(JSON.stringify(user));
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
              $(window).attr('location','changeinfo.html');
          }
          ,
