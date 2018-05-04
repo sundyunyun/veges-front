@@ -72,7 +72,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>菜单栏</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> 个人信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -84,7 +84,7 @@
                   <li><a><i class="fa fa-bar-chart-o"></i>仓库管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="storeveges.html">查看仓库菜品</a></li>
-                      <li><a href="chartjs2.html">更新仓库菜品</a></li>
+                      <!--<li><a href="chartjs2.html">更新仓库菜品</a></li>-->
                       <!--      <li><a href="morisjs.html">Moris JS</a></li>
                             <li><a href="echarts.html">ECharts</a></li>
                             <li><a href="other_charts.html">Other Charts</a></li>-->
@@ -102,9 +102,9 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 出库管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="makeimport.html">生成出库单</a></li>
+                      <li><a href="currentorderitem.html">生成出库单</a></li>
                       <!--<li><a href="media_gallery.html">安排司机进货</a></li>-->
-                      <li><a href="viewimpolist.html">历史库货单</a></li>
+                      <li><a href="viewoutstorelist.html">历史出库单</a></li>
                       <!--                      <li><a href="icons.html">Icons</a></li>
                                             <li><a href="glyphicons.html">Glyphicons</a></li>
                                             <li><a href="widgets.html">Widgets</a></li>
@@ -113,12 +113,12 @@
                                             <li><a href="calendar.html">Calendar</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> 备用，外出工作时 <span class="fa fa-chevron-down"></span></a>
+                  <!--<li><a><i class="fa fa-table"></i> 备用，外出工作时 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
                       <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                     </ul>
-                  </li>
+                  </li>-->
                   <!-- <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
                        <li><a href="chartjs.html">Chart JS</a></li>
@@ -212,7 +212,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="../../dist/img/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -301,38 +301,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
-        <!--  <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-              <div class="count">2500</div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-              <div class="count">123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-              <div class="count green">2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-              <div class="count">2,315</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-              <div class="count">7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-          </div>-->
+
           <!-- /top tiles -->
 
 
@@ -361,21 +330,7 @@
                 <br />
 
                 <form class="form-horizontal form-label-left" novalidate>
-         <!--         Email
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
-                 <!-- <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
+
                   <div class="item form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">订单编号<span class="required">*</span>
                     </label>
@@ -427,55 +382,6 @@
                   </div>
                 </form>
 
-                <!--<form class="form-horizontal form-label-left">
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">供应商 *</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="供应商编号" id="supplierId" required="">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">采购员</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" disabled="disabled" id="buyer">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">仓库 *</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="仓库编号" id="storeId">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">司机</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="司机编号" id="driverId">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">总进货价</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="总进货价" id="totalprice">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">总重</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="总重" id="totalweight">
-                    </div>
-                  </div>
-                  
-                  <div class="ln_solid"></div>
-                  <div class="form-group">
-                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                      <a href="index.html" type="button" class="btn btn-primary">取消</a>
-                      <button type="reset" class="btn btn-primary">重置</button>
-                      <a class="btn btn-success" onclick="addimport()">提交</a>
-                    </div>
-                  </div>
-
-                </form>-->
               </div>
             </div>
           </div>
@@ -713,11 +619,11 @@
             data:{"orderId":orderid},
             datatype: "json",
             beforeSend: function (request) {
-              /*alert("test");*/
+
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-              /*alert(JSON.stringify(data));*/
+
             $("#driverId").val(data.order.driverId);
             $("#totalprice").val(data.order.totalprice);
             $("#totalweight").val(data.order.totalweight);
@@ -739,11 +645,11 @@
             contentType: "application/json;charset=utf-8",
             datatype: "json",
             beforeSend: function (request) {
-                /*alert("test");*/
+
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-                /*alert(JSON.stringify(data));*/
+
                 localStorage.setItem("veges",JSON.stringify(data));
                 for(var i=0;i<data.length;i++)
                 {
@@ -869,7 +775,7 @@
                 data: JSON.stringify(outstoreItem),
                 datatype: "json",
                 beforeSend: function (request) {
-                   /* alert(JSON.stringify(addimpo));*/
+
                     request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
                 },
                 success: function (data) {
@@ -962,11 +868,11 @@
          data:{"id":baseInfo.user.id},
          datatype: "json",
          beforeSend: function (request) {
-             alert("test");
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
             $(window).attr('location','personinfo.html');
          }
          ,
@@ -991,11 +897,11 @@
          data:JSON.stringify(user),
          datatype:"json",
          beforeSend: function (request) {
-             alert(JSON.stringify(user));
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
              $(window).attr('location','changebuyerinfo.html');
          }
          ,

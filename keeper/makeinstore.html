@@ -72,7 +72,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>菜单栏</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> 个人信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -113,12 +113,12 @@
                                             <li><a href="calendar.html">Calendar</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> 备用，外出工作时 <span class="fa fa-chevron-down"></span></a>
+                  <!--<li><a><i class="fa fa-table"></i> 备用，外出工作时 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
                       <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                     </ul>
-                  </li>
+                  </li>-->
                   <!-- <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
                        <li><a href="chartjs.html">Chart JS</a></li>
@@ -212,7 +212,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="../../dist/img/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -361,21 +361,7 @@
                 <br />
 
                 <form class="form-horizontal form-label-left" novalidate>
-         <!--         Email
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
-                 <!-- <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                  </div>-->
+
                   <div class="item form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">进货单编号<span class="required">*</span>
                     </label>
@@ -427,55 +413,6 @@
                   </div>
                 </form>
 
-                <!--<form class="form-horizontal form-label-left">
-
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">供应商 *</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="供应商编号" id="supplierId" required="">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">采购员</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" disabled="disabled" id="buyer">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">仓库 *</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="仓库编号" id="storeId">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">司机</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="司机编号" id="driverId">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">总进货价</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="总进货价" id="totalprice">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">总重</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" class="form-control" placeholder="总重" id="totalweight">
-                    </div>
-                  </div>
-                  
-                  <div class="ln_solid"></div>
-                  <div class="form-group">
-                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                      <a href="index.html" type="button" class="btn btn-primary">取消</a>
-                      <button type="reset" class="btn btn-primary">重置</button>
-                      <a class="btn btn-success" onclick="addimport()">提交</a>
-                    </div>
-                  </div>
-
-                </form>-->
               </div>
             </div>
           </div>
@@ -691,7 +628,6 @@
         var token = localStorage.getItem("token");
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
         $("#name").html(baseInfo.user.name);
-
        show();
        showitem();
         });
@@ -701,7 +637,7 @@
         var baseInfo = JSON.parse(localStorage.getItem("baseinfo"));
         var importItem=JSON.parse(localStorage.getItem("importitem"));
        var importid=importItem[0].importId;
-       alert(importid);
+
         $("#keeper").val(baseInfo.user.name);
         $("#storeId").val(baseInfo.user.storeId);
         $("#importId").val(importid);
@@ -714,11 +650,11 @@
             data:{"importId":importid},
             datatype: "json",
             beforeSend: function (request) {
-              /*alert("test");*/
+
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-              /*alert(JSON.stringify(data));*/
+
             $("#driverId").val(data.driverId);
             $("#totalprice").val(data.totalprice);
             $("#totalweight").val(data.totalweight);
@@ -918,7 +854,7 @@
         //传对象时设置对象状态为未完成，成功加完明细后改状态为完成。
         var token = localStorage.getItem("token");
         var instoreInfo = JSON.parse(localStorage.getItem("instoreinfo"));
-        alert(instoreInfo.id);
+
         $.ajax({
             url: url + "/api/addinstoredone",
             type: "get",
@@ -927,11 +863,11 @@
             data:{"instoreId":instoreInfo.id},
             datatype: "json",
             beforeSend: function (request) {
-              /*alert("test");*/
+
                 request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
             },
             success: function (data) {
-              /*alert(JSON.stringify(data));*/
+
               alert("该入库单已成功生成");
                 $(window).attr('location', 'currentimpoitem.html');
             }
@@ -956,11 +892,9 @@
          data:{"id":baseInfo.user.id},
          datatype: "json",
          beforeSend: function (request) {
-             alert("test");
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
             $(window).attr('location','personinfo.html');
          }
          ,
@@ -985,11 +919,11 @@
          data:JSON.stringify(user),
          datatype:"json",
          beforeSend: function (request) {
-             alert(JSON.stringify(user));
+
              request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
          },
          success: function (data) {
-             alert(JSON.stringify(data));
+
              $(window).attr('location','changebuyerinfo.html');
          }
          ,
