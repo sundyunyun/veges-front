@@ -435,7 +435,7 @@
             $("#namee").val(baseInfo.user.name);
             $("#username").val(baseInfo.user.username);
             $("#gender").val(baseInfo.user.gender);
-            $("#address").val(baseInfo.user.address);
+            $("#address").val(baseInfo.user.location);
             $("#tel").val(baseInfo.user.tel);
             $("#email").val(baseInfo.user.email);
             $("#role").val(baseInfo.role.role);
@@ -522,7 +522,7 @@
                     "gender": $("#gender").val(),
                     "email": $("#email").val(),
                     "tel": $("#tel").val(),
-                    "adress": $("#address").val(),
+                    "location": $("#address").val(),
                     "password": $("#password").val()
                 };
                 //用户未输入时设置为null，后端不改变数据库相关内容

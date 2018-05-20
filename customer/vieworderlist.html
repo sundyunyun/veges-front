@@ -510,10 +510,10 @@
 
 
           $.ajax({
-              url:url+"/api/getbyimpoId",
+              url:url+"/api/getitemByorderid",
               type:"get",
               contentType:"application/json",
-              data:{"importId":id},
+              data:{"orderId":id},
               datatype:"json",
               beforeSend: function (request) {
                   request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));

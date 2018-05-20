@@ -332,7 +332,7 @@
                       <!-- info row -->
                       <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                          客户
+                          客户:
                           <address>
                             <strong id="customername"></strong>
                             <br ><b id="address"></b>
@@ -341,7 +341,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-4 invoice-col">
-                          备注
+                          备注:
                           <address>
                             <strong id="msg"></strong>
                           </address>
@@ -532,6 +532,7 @@
               $("#address").html(data.order.address);
               $("#tel").html(data.order.tel);
               $("#orderId").html(orderId);
+              $("#msg").html(data.order.msg);
                /* $("#importstate").html(data.impo.state);*/
 
                 $("#t").append("<tr>"+"<th>配送：</th>"+"<td>"+data.driver.name+"</td>"+"</tr>");

@@ -734,6 +734,10 @@
                   contentType: "application/json;charset=utf-8",
                   data: JSON.stringify(addedUser),
                   datatype: "json",
+                  beforeSend: function (request) {
+                    /*alert(JSON.stringify(addimpo));*/
+                      request.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("token"));
+                  },
                   success: function (data) {
                     /*alert(JSON.stringify(data));*/
                       if (data !="") {

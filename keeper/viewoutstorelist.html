@@ -410,7 +410,7 @@
             var t=$("#datatable-buttons").DataTable();
 
             $.ajax({
-                url:url+"/api/getalloutstore",
+                url:url+"/api/getoutstoreBystoreId",
                 type:"get",
                 contentType:"application/json",
                 data:{"storeId":baseInfo.user.storeId},
